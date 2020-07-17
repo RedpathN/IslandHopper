@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float maxSpeed = 10f;
     public float movementSpeed = 10f;
     public float currentSpeed = 0;
     public float speedSmoothVelocity = 0f;
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
         Move();
 
         if (woodInventory > 0) {
-           // movementSpeed = movementSpeed * (1 - (woodInventory / maxInventory));
+            movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
         }
 
 
