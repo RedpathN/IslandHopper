@@ -7,7 +7,7 @@ public class WaterRise : MonoBehaviour
 
     public float WaterStartHeight;
     public float WaterEndHeight;
-    public float RiseTimeInMinutes;
+    public float RiseTimeMinutes;
 
     private float WaterRiseSpeed = 1.0f;
 
