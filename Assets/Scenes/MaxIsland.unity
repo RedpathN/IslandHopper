@@ -301,6 +301,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
+        type: 3}
+      propertyPath: WaterStartHeight
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
+        type: 3}
+      propertyPath: WaterEndHeight
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
+        type: 3}
+      propertyPath: RiseTimeMinutes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5134456094733630339, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
       propertyPath: m_Name
