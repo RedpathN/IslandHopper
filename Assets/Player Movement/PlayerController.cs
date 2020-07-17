@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject Wood;
+    public GameObject Water;
+    public GameObject Player;
     public float boostedSpeed = 20f;
     public bool SpeedBoost = false;
     public float maxSpeed = 10f;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
+    public bool isDying = false;
     
 
     private void Start()
@@ -29,20 +32,34 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        //Check if Speedboost Equipped
         if (SpeedBoost)
         {
             maxSpeed = boostedSpeed;
         }
 
+        //Drop an item
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            woodInventory--;
+            if (woodInventory > 0)
+            {
+                woodInventory--;
+            }
         }
-           
+   
 
         Move();
 
+        //Slow down player with more items
         movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
+
+        //Check if drowning
+        float waterLevel = Water.GetComponent<Transform>().position.y;
+        if (waterLevel > transform.position.y)
+        {
+
+            print("Dying!!!");
+        }
         
 
 
@@ -96,6 +113,11 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             SpeedBoost = true;
         }
+    }
+
+    private void Dying()
+    {
+
     }
 
 }
