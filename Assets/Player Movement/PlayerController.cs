@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject Wood;
+    public float boostedSpeed = 20f;
+    public bool SpeedBoost = false;
     public float maxSpeed = 10f;
     public float movementSpeed = 10f;
     public float currentSpeed = 0;
@@ -17,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
+    
 
     private void Start()
     {
@@ -25,23 +29,21 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (SpeedBoost)
+        {
+            maxSpeed = boostedSpeed;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (woodInventory < 0)
-            {
-                woodInventory--;
-            }
+            woodInventory--;
         }
-    
-
-        
            
 
         Move();
 
-        if (woodInventory > 0) {
-            movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
-        }
+        movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
+        
 
 
     }
@@ -87,8 +89,12 @@ public class PlayerController : MonoBehaviour
                 woodInventory++;
                 Destroy(collision.gameObject);
             }
+        }
 
-
+        if (collision.gameObject.tag == "PowerUp")
+        {
+            Destroy(collision.gameObject);
+            SpeedBoost = true;
         }
     }
 
