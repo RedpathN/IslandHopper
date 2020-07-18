@@ -18,7 +18,9 @@ public class Randomize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!IsRandomized) {
+        if (!IsRandomized)
+        {
+            IsRandomized = true;
             var index = Random.Range(0, prefabs.Count);
             var subObject = Instantiate(prefabs[index], transform);
 
@@ -44,8 +46,6 @@ public class Randomize : MonoBehaviour
             }
 
             subObject.transform.Rotate(rotateAxis, Random.Range(0f, 360f));
-
-            IsRandomized = true;
         }
     }
 }
