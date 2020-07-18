@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             maxSpeed = boostedSpeed;
         }
 
-        //Drop an items ---------------------------------------------------------
+        //Drop items ---------------------------------------------------------
 
         if (Input.GetKeyDown(KeyCode.Space) && !onPlatform)
         {
@@ -99,17 +99,14 @@ public class PlayerController : MonoBehaviour
         }
         
         //---------------------------------------------------------------------------
-        
-
-
-
-
-
+       
+        //Player Movement
         Move();
 
 
         //Slow down player with more items-----------------------------------------
         movementSpeed = maxSpeed * (1 - (totalInventory / maxInventory));
+
 
         //Check if drowning
         float waterLevel = Water.GetComponent<Transform>().position.y;
