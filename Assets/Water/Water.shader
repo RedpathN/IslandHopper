@@ -8,7 +8,11 @@
 		_DeepColor ("Deep Color", Color) = (0.0320, 0.42, 0.97, 0.69)
         _Glossiness ("Smoothness", Range(0,1)) = 0.033
         _Metallic ("Metallic", Range(0,1)) = 0.042
-		_MainTex ("Water Depth Texture", 2D) = "white" {}
+
+		_DepthTex ("Water Depth Texture", 2D) = "white" {}
+		_NormalMapTex1 ("Normal Map", 2D) = "white" {}
+		_NormalMapTex2 ("Normal Map2", 2D) = "white" {}
+
     }
     SubShader
     {
@@ -22,11 +26,14 @@
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
-        sampler2D _MainTex;
+		sampler2D _DepthTex;
+		sampler2D _NormalMapTex1;
+		sampler2D _NormalMapTex2;
 
         struct Input
         {
-            float2 uv_MainTex;
+			float2 uv_MainTex;
+			float3 worldPos;
         };
 
         half _Glossiness;
@@ -45,9 +52,9 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float2 uvflipped = float2(IN.uv_MainTex.x, 255. - IN.uv_MainTex.y);
+			float2 uvflipped = float2(IN.uv_MainTex.x, 1. - IN.uv_MainTex.y);
 			fixed4 white = fixed4(1., 1., 1., 1.);
-			float oceanFloorHeight = tex2D(_MainTex, IN.uv_MainTex).x;
+			float oceanFloorHeight = tex2D(_DepthTex, IN.uv_MainTex).x;
 			float waterDepth = max(0.0, _WaterHeight - oceanFloorHeight * _HeightScale);
 			float waterDepthFactor = min(waterDepth, 10.0) / 10.0;
             // Albedo comes from a texture tinted by color
@@ -57,6 +64,9 @@
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
+			float2 nm1offset = float2(.02, .05) * _Time.y;
+			float2 nm2offset = float2(.03, -.02) * _Time.y;
+			o.Normal = UnpackNormal((tex2D(_NormalMapTex1, IN.worldPos.xz + nm1offset) + tex2D(_NormalMapTex2, (IN.worldPos.xz + nm2offset) / 6)) / 2);
         }
         ENDCG
     }

@@ -64,7 +64,7 @@ Material:
     - _SideMetallic: 0.102
     - _SideSmoothness: 0.054
     - _TopSmoothness: 0.243
-    - _WaterHeight: 2.4
+    - _WaterHeight: 5.96
     m_Colors:
     - _SideAlbedo: {r: 0.24528301, g: 0.17951696, b: 0.08908863, a: 1}
     - _SideColor: {r: 0.254717, g: 0.17350164, b: 0.054067295, a: 1}
