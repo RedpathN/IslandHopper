@@ -127,7 +127,10 @@ public class PlayerController : MonoBehaviour
         float waterLevel = Water.GetComponent<Transform>().position.y;
         if (waterLevel > (transform.position.y + 2))
         {
-            TutorialController.GetComponent<TutorialController>().isDead = true;
+            if (TutorialController != null)
+            {
+                TutorialController.GetComponent<TutorialController>().isDead = true;
+            }
             Dying(); 
             
         }
