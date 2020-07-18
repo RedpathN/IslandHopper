@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2368827201378588871}
-  m_LocalRotation: {x: 0.066477686, y: 0.00019731592, z: -0.00006579266, w: 0.9977879}
+  m_LocalRotation: {x: 0.066477686, y: 0.00019727943, z: -0.00006578048, w: 0.9977879}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -214,7 +214,6 @@ GameObject:
   - component: {fileID: 2368827201616515323}
   - component: {fileID: 2368827201616515327}
   - component: {fileID: 2368827201616515324}
-  - component: {fileID: 2368827201616515301}
   - component: {fileID: 1682447274623008977}
   m_Layer: 0
   m_Name: Player
@@ -295,7 +294,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 10.3
+  m_Radius: 1.48
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -312,9 +311,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wood: {fileID: 0}
+  Cloths: {fileID: 0}
+  Rope: {fileID: 0}
+  Food: {fileID: 0}
   Water: {fileID: 0}
   Player: {fileID: 0}
   Particles: {fileID: 0}
+  invText: {fileID: 0}
   boostedSpeed: 20
   SpeedBoost: 0
   maxSpeed: 10
@@ -325,8 +328,11 @@ MonoBehaviour:
   gravity: 2.79
   rotationSpeed: 1
   woodInventory: 0
+  clothInventory: 0
+  ropeInventory: 0
+  foodInventory: 0
+  totalInventory: 0
   maxInventory: 7
-  isDying: 0
 --- !u!143 &2368827201616515324
 CharacterController:
   m_ObjectHideFlags: 0
@@ -345,19 +351,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &2368827201616515301
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2368827201616515300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.24, y: 2, z: 1.42}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &1682447274623008977
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -825,7 +818,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2368827202979969348}
-  m_LocalRotation: {x: 0.048317425, y: 0.00019848008, z: -0.000062192696, w: 0.9988321}
+  m_LocalRotation: {x: 0.048317425, y: 0.00019844336, z: -0.00006218119, w: 0.9988321}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
