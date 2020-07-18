@@ -7,24 +7,21 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: 4800000, guid: 281b26def6d30de4cbdf2a3ee8dd0cf1, type: 3}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_Name: DeepWaterLayer
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DepthTex:
-        m_Texture: {fileID: 2800000, guid: da642a9babf3c404eba973aeadb02384, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -44,23 +41,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: da642a9babf3c404eba973aeadb02384, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMapTex:
-        m_Texture: {fileID: 2800000, guid: caecb7663e614c0e8d1cf595085ee759, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMapTex1:
-        m_Texture: {fileID: 2800000, guid: e807adc974a3eee4d963f830901c67e2, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMapTex2:
-        m_Texture: {fileID: 2800000, guid: c205b3befc61b954693f5e9ef8676118, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -71,36 +56,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _WaterDepthTex:
-        m_Texture: {fileID: 2800000, guid: da642a9babf3c404eba973aeadb02384, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.868
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HeightScale: 65
-    - _Metallic: 0.182
-    - _Mode: 3
-    - _N1Scale: 8.38
-    - _N1Str: 0.681
-    - _N2Scale: 19.6
+    - _Metallic: 0
+    - _Mode: 2
     - _OcclusionStrength: 1
-    - _Offset: 0.91
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpeedMulti: 10.1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _UVSec: 0
-    - _WaterHeight: 29.45
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.27058828, g: 0.70869124, b: 1, a: 0.37254903}
-    - _DeepColor: {r: 0, g: 0.10021416, b: 0.6132076, a: 0.3647059}
+    - _Color: {r: 0.0057849786, g: 0.030580273, b: 0.09433961, a: 0.81960785}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainTex: {r: 0.032, g: 0.42, b: 0.97, a: 0.69}

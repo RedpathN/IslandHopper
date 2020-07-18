@@ -13,14 +13,12 @@ public class WaterRise : MonoBehaviour
     public GameObject Terrain;
 
     private float timeSinceStart = 0;
-    private float WaterRiseSpeed = 1.0f;
+    private float framesPerSec = 60.0f;
+    private float secsPerMin = 60.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        var framesPerSec = 60.0f;
-        var secsPerMin = 60.0f;
-        WaterRiseSpeed = (WaterEndHeight - WaterStartHeight) / (framesPerSec * secsPerMin * RiseTimeMinutes);
 
         transform.position = new Vector3(transform.position.x, WaterStartHeight, transform.position.z);
     }
@@ -28,13 +26,15 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var waterRiseSpeed = (WaterEndHeight - WaterStartHeight) / (secsPerMin * RiseTimeMinutes);
+
         timeSinceStart += Time.deltaTime;
 
         if (Application.isPlaying && IsRising)
         {
             if (transform.position.y < WaterEndHeight)
             {
-                transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+                transform.position = transform.position += new Vector3(0.0f, waterRiseSpeed, 0.0f) * Time.deltaTime;
             }
         }
 
