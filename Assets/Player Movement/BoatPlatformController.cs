@@ -16,8 +16,10 @@ public class BoatPlatformController : MonoBehaviour
     public float foodNeeded = 5;
 
     public bool collectedAll = false;
+    private bool fireworkActivated = false;
 
     public Text platformText;
+    public ParticleSystem fireworks;
 
     private void Update()
     {
@@ -30,6 +32,12 @@ public class BoatPlatformController : MonoBehaviour
         if (collectedAll)
         {
             platformText.text = "Ready to set sail!";
+            if (!fireworkActivated)
+            {
+                Instantiate(fireworks, this.transform.position, this.transform.rotation);
+                fireworkActivated = true;
+            }
+            
         }
     }
 
