@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BoatPlatformController : MonoBehaviour
 {
@@ -36,8 +37,9 @@ public class BoatPlatformController : MonoBehaviour
             {
                 Instantiate(fireworks, this.transform.position, this.transform.rotation);
                 fireworkActivated = true;
-            }
-            
+                Invoke("nextLevel", 5f);
+                
+            } 
         }
     }
 
@@ -46,4 +48,9 @@ public class BoatPlatformController : MonoBehaviour
         string allText = name + ": " + collected.ToString() + "/" + needed.ToString() + "\n";
         return allText;
     }
+
+    void nextLevel() {
+        SceneManager.LoadScene("Small Demo 2");
+    }
+
 }
