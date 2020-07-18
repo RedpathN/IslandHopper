@@ -4,6 +4,7 @@ using System.Collections;
 public class KeyPrompt : MonoBehaviour
 {
     public GameObject keyPrompt;
+    public bool StartActive = false;
     public float HideAfterSeconds = 0.05f;
 
     private float timeSinceShown;
@@ -12,7 +13,7 @@ public class KeyPrompt : MonoBehaviour
     void Start()
     {
         keyPrompt = Instantiate(keyPrompt, transform);
-        keyPrompt.SetActive(false);
+        keyPrompt.SetActive(StartActive);
     }
 
     // Update is called once per frame
