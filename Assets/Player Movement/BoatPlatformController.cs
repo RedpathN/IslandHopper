@@ -24,7 +24,7 @@ public class BoatPlatformController : MonoBehaviour
 
     private void Update()
     {
-        platformText.text = "Items Collected \n\n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded);
+        platformText.text = "Drop Items Here! \n \nItems Collected \n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded);
         if (woodCollected >= woodNeeded && ropeCollected >= ropeNeeded && clothCollected >= clothNeeded && foodCollected >= foodNeeded) 
         {
             collectedAll = true;

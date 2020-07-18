@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private float speedSmoothTime = 0.1f;
     public float gravity = 7f;
     public float rotationSpeed = 1f;
+    public bool onPlatform = false;
+
     [Space(5)]
     [Header("Inventory")]
     public float woodInventory = 0;
@@ -36,7 +38,6 @@ public class PlayerController : MonoBehaviour
     public float totalInventory = 0;
     public float maxInventory = 20;
 
-    private bool onPlatform = false;
 
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
      
 
         //Update text
-        invText.text = "Inventory \nWood :" + woodInventory.ToString() + "   Cloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   Food:"+foodInventory;
+        invText.text = "Inventory \nWood :" + woodInventory.ToString() + "   \nCloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   \nFood:"+foodInventory;
 
         //Check Inventory fullness
         if (totalInventory == maxInventory)
