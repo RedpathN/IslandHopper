@@ -16,15 +16,28 @@ public class BoatPlatformController : MonoBehaviour
     public float foodNeeded = 5;
 
     public bool collectedAll = false;
+    private bool fireworkActivated = false;
 
     public Text platformText;
+    public ParticleSystem fireworks;
 
     private void Update()
     {
-        platformText.text = "Items Collected /n\n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded);
+        platformText.text = "Items Collected \n\n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded);
         if (woodCollected >= woodNeeded && ropeCollected >= ropeNeeded && clothCollected >= clothNeeded && foodCollected >= foodNeeded) 
         {
             collectedAll = true;
+        }
+
+        if (collectedAll)
+        {
+            platformText.text = "Ready to set sail!";
+            if (!fireworkActivated)
+            {
+                Instantiate(fireworks, this.transform.position, this.transform.rotation);
+                fireworkActivated = true;
+            }
+            
         }
     }
 
