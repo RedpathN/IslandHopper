@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public float totalInventory = 0;
     public float maxInventory = 20;
 
+    private bool onPlatform = false;
+
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
 
@@ -64,7 +66,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Drop an items ---------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        if (Input.GetKeyDown(KeyCode.Space) && !onPlatform)
         {
             if (woodInventory > 0)
             {
@@ -72,34 +75,19 @@ public class PlayerController : MonoBehaviour
                 newPosition.z -= 1;
                 woodInventory--;
                 Instantiate(Wood, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (clothInventory > 0)
-            {
-                Vector3 newPosition = transform.position;
-                newPosition.z -= 1;
-                clothInventory--;
-                Instantiate(Cloths, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (ropeInventory > 0)
+            } else if (clothInventory > 0)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.z -= 1;
+                    clothInventory--;
+                    Instantiate(Cloths, newPosition, transform.rotation);
+                } else if (ropeInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
                 ropeInventory--;
                 Instantiate(Rope, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (foodInventory > 0)
+            } else if (foodInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
@@ -107,6 +95,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(Food, newPosition, transform.rotation);
             }
         }
+        
         //---------------------------------------------------------------------------
         
 
@@ -126,7 +115,9 @@ public class PlayerController : MonoBehaviour
         {
             Dying(); 
         }
-        
+
+        //if not on Platform
+        onPlatform = false;
 
 
     }
@@ -208,26 +199,29 @@ public class PlayerController : MonoBehaviour
             SpeedBoost = true;
         }
 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
-            collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
-            woodInventory = 0;
+            onPlatform = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
+                woodInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
-            clothInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
+                clothInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
-            ropeInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
+                ropeInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
-           foodInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
+                foodInventory = 0;
+            }
 
         }
+
     }
+
+
 
     private void Dying()
     {
