@@ -27,7 +27,7 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Application.isEditor)
+        if (Application.isPlaying)
         {
             transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
         }
