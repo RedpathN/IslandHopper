@@ -5,13 +5,14 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class WaterRise : MonoBehaviour
 {
-
+    public bool IsRising = true;
     public float WaterStartHeight;
     public float WaterEndHeight;
     public float RiseTimeMinutes;
 
     public GameObject Terrain;
 
+    private float timeSinceStart = 0;
     private float WaterRiseSpeed = 1.0f;
 
     // Start is called before the first frame update
@@ -27,7 +28,9 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.isPlaying)
+        timeSinceStart += Time.deltaTime;
+
+        if (Application.isPlaying && IsRising)
         {
             if (transform.position.y < WaterEndHeight)
             {
