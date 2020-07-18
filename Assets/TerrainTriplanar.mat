@@ -62,7 +62,7 @@ Material:
     m_Floats:
     - _Glossiness: 0.327
     - _Metallic: 0.134
-    - _Sharpness: 10
+    - _Sharpness: 3.17
     - _SideAO: 0
     - _SideMTL: 0
     - _SideMetallic: 0.102
