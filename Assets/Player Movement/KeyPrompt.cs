@@ -3,12 +3,10 @@ using System.Collections;
 
 public class KeyPrompt : MonoBehaviour
 {
-
-    public float DisplayHeight;
     public GameObject keyPrompt;
+    public float HideAfterSeconds = 0.05f;
 
     private float timeSinceShown;
-    private float HideAfterSeconds = 0.05f;
 
     // Use this for initialization
     void Start()
