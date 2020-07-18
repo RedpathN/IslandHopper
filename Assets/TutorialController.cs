@@ -13,7 +13,8 @@ public class TutorialController : MonoBehaviour
     public bool isDead = false;
 
     public float tutorialStage = 0;
-    public float Inventory = 0;
+    private float Inventory = 0;
+    private bool onPlatform = false;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class TutorialController : MonoBehaviour
         if (!isDead)
         {
             Inventory = player.GetComponent<PlayerController>().totalInventory;
+            onPlatform = player.GetComponent<PlayerController>().onPlatform;
 
             if (Inventory >= 1 && tutorialStage == 0)
             {
@@ -42,7 +44,21 @@ public class TutorialController : MonoBehaviour
             if (tutorialStage == 2 && Input.GetKey(KeyCode.Space))
             {
                 tutorialStage = 3;
-                tutorialText.text = "";
+                tutorialText.text = "Head to the platform!";
+            }
+
+            if (tutorialStage ==3 && onPlatform)
+            {
+                tutorialStage = 4;
+                tutorialText.text = "Press Space while standing on the platform to stash your items";
+            }
+
+            if (tutorialStage == 4 && Input.GetKey(KeyCode.Space))
+            {
+                tutorialStage = 5;
+                tutorialText.text = "When you've collected enough items, you can set sail! Be quick, the water is rising";
+                //Start water rising now
+
             }
         }
         
