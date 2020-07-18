@@ -7,11 +7,13 @@
 		_TopTexNM("Top Tex NM", 2D) = "white" {}
 		_TopTexMTL ("Top Tex Metallic", 2D) = "white" {}
 		_TopSmoothness("Top Smoothness", Range(0,1)) = 0.5
+		_TopTexTiling("Top Tiling", Range(0,20)) = 1
 
 		_SideTexAlbedo("Side Tex Albedo", 2D) = "white" {}
 		_SideTexAO("Side Tex Ambient Occlusion", 2D) = "white" {}
 		_SideTexNM("Side Tex NM", 2D) = "white" {}
 		_SideTexMTL("Side Tex Metallic", 2D) = "white" {}
+		_SideTexTiling("Side Tiling", Range(0,20)) = 1
 
 		_Sharpness("Sharpness", Range(0,10)) = 0.5
 		_WaterHeight ("Water Height", Range(0, 100)) = 0.2
@@ -41,6 +43,9 @@
 		sampler2D _SideTexMTL;
 		float _SideSmoothness;
 
+		float _SideTexTiling;
+		float _TopTexTiling;
+
         struct Input
         {
 			float3 worldPos;
@@ -64,17 +69,17 @@
 			float2 side1uv = IN.worldPos.zy;
 			float2 side2uv = IN.worldPos.xy;
 
-			float4 topAlbedo = tex2D(_TopTexAlbedo, topuv);
+			float4 topAlbedo = tex2D(_TopTexAlbedo, topuv*_TopTexTiling);
 			float topAO = tex2D(_TopTexAO, topuv);
 			float3 topNM = tex2D(_SideTexNM, topuv);
 			float topMTL = tex2D(_TopTexMTL, topuv);
 
-			float4 side1Albedo = tex2D(_SideTexAlbedo, side1uv);
+			float4 side1Albedo = tex2D(_SideTexAlbedo, side1uv*_SideTexTiling);
 			float side1AO = tex2D(_SideTexAO, side1uv);
 			float3 side1NM = tex2D(_SideTexNM, side1uv);
 			float side1MTL = tex2D(_SideTexMTL, side1uv);
 
-			float4 side2Albedo = tex2D(_SideTexAlbedo, side2uv);
+			float4 side2Albedo = tex2D(_SideTexAlbedo, side2uv*_SideTexTiling);
 			float side2AO = tex2D(_SideTexAO, side2uv);
 			float3 side2NM = tex2D(_SideTexNM, side2uv);
 			float side2MTL = tex2D(_SideTexMTL, side2uv);
