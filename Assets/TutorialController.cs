@@ -12,6 +12,7 @@ public class TutorialController : MonoBehaviour
     public Text tutorialText;
     public bool isDead = false;
     public GameObject Water;
+    public GameObject playerSphere;
 
     public float tutorialStage = 0;
     private float Inventory = 0;
@@ -43,10 +44,18 @@ public class TutorialController : MonoBehaviour
                 tutorialStage = 1;
             }
 
-            if (Inventory == 4 && tutorialStage == 1)
+            if (Inventory >= 4 && tutorialStage == 1)
             {
                 tutorialText.text = "Carrying too many objects will slow you down. Press space to drop an item";
                 tutorialStage = 2;
+                
+                
+            }
+
+            if (tutorialStage == 2)
+            {
+                playerSphere.GetComponent<KeyPrompt>().Show();
+
             }
 
             if (tutorialStage == 2 && Input.GetKey(KeyCode.Space))

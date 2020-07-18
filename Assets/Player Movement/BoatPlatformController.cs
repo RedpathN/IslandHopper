@@ -32,7 +32,7 @@ public class BoatPlatformController : MonoBehaviour
 
         if (collectedAll)
         {
-            platformText.text = "Ready to set sail!";
+            platformText.text = "Ready to set sail! \n\n\n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded); ;
             if (!fireworkActivated)
             {
                 Instantiate(fireworks, this.transform.position, this.transform.rotation);
@@ -46,6 +46,10 @@ public class BoatPlatformController : MonoBehaviour
     private string DisplayText(string name, float collected, float needed)
     {
         string allText = name + ": " + collected.ToString() + "/" + needed.ToString() + "\n";
+        if (collected >= needed)
+        {
+            allText = "<color=green>" + allText + "</color>";
+        }
         return allText;
     }
 

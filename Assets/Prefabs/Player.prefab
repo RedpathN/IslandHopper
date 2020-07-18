@@ -273,7 +273,7 @@ MonoBehaviour:
   Player: {fileID: 6278318904299547350}
   Particles: {fileID: 307417209284036585, guid: d723d7f721207a741a06dcbb969ff43a,
     type: 3}
-  invText: {fileID: 0}
+  playerText: {fileID: 0}
   TutorialController: {fileID: 0}
   playerSphere: {fileID: 8646579291057706858}
   boostedSpeed: 20
@@ -288,7 +288,7 @@ MonoBehaviour:
   ropeInventory: 0
   foodInventory: 0
   totalInventory: 0
-  maxInventory: 7
+  maxInventory: 10
 --- !u!143 &6278318904299547342
 CharacterController:
   m_ObjectHideFlags: 0

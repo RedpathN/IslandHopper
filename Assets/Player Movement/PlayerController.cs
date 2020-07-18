@@ -57,16 +57,18 @@ public class PlayerController : MonoBehaviour
 
 
         totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
-     
+
 
         //Update text
+        playerText.color = Color.white;
         playerText.text = "Inventory \nWood :" + woodInventory.ToString() + "   \nCloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   \nFood:"+foodInventory;
 
         //Check Inventory fullness
         if (totalInventory >= maxInventory)
         {
             SpacePrompt();
-            playerText.text += "\n Too Many Items! Press Space to drop some";
+            playerText.text += "\n"+"Too Many Items! Press Space to drop some";
+            playerText.color = Color.red;
         }
 
         //Check if Speedboost Equipped
