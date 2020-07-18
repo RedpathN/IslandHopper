@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class WaterRise : MonoBehaviour
 {
 
@@ -26,9 +27,16 @@ public class WaterRise : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+        if (!Application.isEditor)
+        {
+            transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+        }
 
         GetComponent<Renderer>().sharedMaterial.SetFloat("_WaterHeight", transform.position.y);
-        Terrain.GetComponent<Terrain>().materialTemplate.SetFloat("_WaterHeight", transform.position.y);
+
+        if (Terrain != null)
+        {
+            Terrain.GetComponent<Terrain>().materialTemplate.SetFloat("_WaterHeight", transform.position.y);
+        }
     }
 }
