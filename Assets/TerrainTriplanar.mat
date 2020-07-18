@@ -23,12 +23,50 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SideTexAO:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SideTexAlbedo:
+        m_Texture: {fileID: 2800000, guid: 0b343b179d2251243a8bbed3fe8e2773, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SideTexMTL:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SideTexNM:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexAO:
+        m_Texture: {fileID: 2800000, guid: 47e43ad972e1d8046bcd0bc1dcc24796, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexAlbedo:
+        m_Texture: {fileID: 2800000, guid: 1cbbf48176299a24d92ac4a045edb2e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexMTL:
+        m_Texture: {fileID: 2800000, guid: 72fe207fad35040429a119a1a573afc5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexNM:
+        m_Texture: {fileID: 2800000, guid: 6733aa672fc43a642b825890883b7226, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 0.327
     - _Metallic: 0.134
     - _Sharpness: 5.77
-    - _WaterHeight: 23.253374
+    - _SideAO: 0
+    - _SideMTL: 0
+    - _SideMetallic: 0.102
+    - _SideSmoothness: 0.054
+    - _TopSmoothness: 0.243
+    - _WaterHeight: 20
     m_Colors:
+    - _SideAlbedo: {r: 0.24528301, g: 0.17951696, b: 0.08908863, a: 1}
     - _SideColor: {r: 0.254717, g: 0.17350164, b: 0.054067295, a: 1}
     - _TopColor: {r: 0.17044047, g: 0.5660378, b: 0, a: 1}
     - _WaterDeepColor: {r: 0.054512292, g: 0.10163163, b: 0.23584908, a: 0.69}

@@ -343,7 +343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9f52ac667bb03dc46a0a03537c035588, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287166200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 250, y: 13.2, z: 250}
+  m_LocalPosition: {x: 234.39, y: 38.88, z: 282.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -426,7 +426,7 @@ PrefabInstance:
     - target: {fileID: 5134456094733630343, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.32
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5134456094733630343, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
@@ -482,6 +482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5134456094733630341, guid: 0854828e4fe17d54297372b8802a5527,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0854828e4fe17d54297372b8802a5527, type: 3}
