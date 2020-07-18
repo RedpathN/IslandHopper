@@ -29,7 +29,10 @@ public class WaterRise : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+            if (transform.position.y < WaterEndHeight)
+            {
+                transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+            }
         }
 
         GetComponent<Renderer>().sharedMaterial.SetFloat("_WaterHeight", transform.position.y);
