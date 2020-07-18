@@ -46,10 +46,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
+     
 
         //Update text
-        invText.text = "Inventory \n\nWood :" + woodInventory.ToString() + "   Cloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   Food:"+foodInventory;
-        
+        invText.text = "Inventory \nWood :" + woodInventory.ToString() + "   Cloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   Food:"+foodInventory;
+
+        //Check Inventory fullness
+        if (totalInventory == maxInventory)
+        {
+            invText.text += "\n Too Many Items! Press '1' '2' '3' or '4'";
+        }
+
         //Check if Speedboost Equipped
         if (SpeedBoost)
         {
