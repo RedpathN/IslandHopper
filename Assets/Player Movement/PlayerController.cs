@@ -5,28 +5,29 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("GameObjects")]
     public GameObject Wood;
     public GameObject Cloths;
     public GameObject Rope;
     public GameObject Food;
-
     public GameObject Water;
     public GameObject Player;
     public ParticleSystem Particles;
-    
     public Text invText;
 
-
+    [Space(5)]
+    [Header("Speed Variables")]
     public float boostedSpeed = 20f;
-    public bool SpeedBoost = false;
+    private bool SpeedBoost = false;
     public float maxSpeed = 10f;
     public float movementSpeed = 10f;
     public float currentSpeed = 0;
-    public float speedSmoothVelocity = 0f;
-    public float speedSmoothTime = 0.1f;
+    private float speedSmoothVelocity = 0f;
+    private float speedSmoothTime = 0.1f;
     public float gravity = 7f;
     public float rotationSpeed = 1f;
-
+    [Space(5)]
+    [Header("Inventory")]
     public float woodInventory = 0;
     public float clothInventory = 0;
     public float ropeInventory = 0;
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
         //Check Inventory fullness
         if (totalInventory == maxInventory)
         {
-            invText.text += "\n Too Many Items! Press '1' '2' '3' or '4'";
+            invText.text += "\n Too Many Items! Press Space to drop some";
         }
 
         //Check if Speedboost Equipped
