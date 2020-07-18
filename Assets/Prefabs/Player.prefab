@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318904136852213}
-  m_LocalRotation: {x: 0.064485885, y: -0.01353669, z: 0.004483081, w: 0.9978168}
+  m_LocalRotation: {x: 0.0644859, y: -0.0135368835, z: 0.0044831457, w: 0.9978168}
   m_LocalPosition: {x: -0.00000008940697, y: 3.1831983e-15, z: -2.88503e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -266,15 +266,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wood: {fileID: 7034507811840553069, guid: afbeff3933d725344a1e81b036800155, type: 3}
-  Cloths: {fileID: 0}
-  Rope: {fileID: 0}
-  Food: {fileID: 0}
+  Cloths: {fileID: 6985318077649190119, guid: af5876d1c8f53014c84e05a7f952d48e, type: 3}
+  Rope: {fileID: 8286425619883305215, guid: 656272f35a9f523478fab1135b14dd50, type: 3}
+  Food: {fileID: 6986737681920913138, guid: e422729900615ed4bbd327c4d0263f04, type: 3}
   Water: {fileID: 0}
   Player: {fileID: 6278318904299547350}
   Particles: {fileID: 307417209284036585, guid: d723d7f721207a741a06dcbb969ff43a,
     type: 3}
   invText: {fileID: 0}
   TutorialController: {fileID: 0}
+  playerSphere: {fileID: 8646579291057706858}
   boostedSpeed: 20
   maxSpeed: 10
   movementSpeed: 10
@@ -582,7 +583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905398459996}
   m_LocalRotation: {x: 0.12729108, y: 4.6730014e-10, z: 0.000000009033837, w: 0.99186546}
-  m_LocalPosition: {x: 0.6064172, y: 9.22, z: -20.190897}
+  m_LocalPosition: {x: 0.6064271, y: 9.22, z: -20.190895}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children:
   - {fileID: 6278318904136852214}
@@ -746,7 +747,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905436842448}
-  m_LocalRotation: {x: 0.028197702, y: -0.013690584, z: 0.003988398, w: 0.99950063}
+  m_LocalRotation: {x: 0.028197717, y: -0.013690838, z: 0.003988472, w: 0.99950063}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -820,7 +821,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905620513654}
-  m_LocalRotation: {x: 0.04632546, y: -0.013615976, z: 0.0042361086, w: 0.99882466}
+  m_LocalRotation: {x: 0.04632546, y: -0.0136162145, z: 0.004236183, w: 0.99882466}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1008,7 +1009,7 @@ GameObject:
   - component: {fileID: 8646579291057706863}
   - component: {fileID: 8646579291057706862}
   - component: {fileID: 8646579291057706861}
-  - component: {fileID: 8646579291057706860}
+  - component: {fileID: 1997831920742454457}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1024,8 +1025,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8646579291057706858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029968262, y: 2.14, z: 0.04}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalPosition: {x: 0.029968262, y: 0.84, z: 0.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6278318904299547340}
   m_RootOrder: 2
@@ -1089,7 +1090,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8646579291057706860
+--- !u!114 &1997831920742454457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1098,10 +1099,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8646579291057706858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3644f47b4c24790408d306ab84e6af46, type: 3}
+  m_Script: {fileID: 11500000, guid: 2030d5f758ff54747965e573847c86c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIText: {fileID: 0}
+  keyPrompt: {fileID: 5757883138807496461, guid: 6b4c0a4c10d75fa49baf8753e796cbf3,
+    type: 3}
+  StartActive: 0
+  HideAfterSeconds: 0.05
 --- !u!1001 &2313848332658269933
 PrefabInstance:
   m_ObjectHideFlags: 0

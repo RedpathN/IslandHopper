@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     public GameObject Water;
     public GameObject Player;
     public ParticleSystem Particles;
-    public Text invText;
+    public Text playerText;
     public GameObject TutorialController;
+    public GameObject playerSphere;
+
     [Space(5)]
     [Header("Speed Variables")]
     public float boostedSpeed = 20f;
@@ -58,12 +60,13 @@ public class PlayerController : MonoBehaviour
      
 
         //Update text
-        invText.text = "Inventory \nWood :" + woodInventory.ToString() + "   \nCloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   \nFood:"+foodInventory;
+        playerText.text = "Inventory \nWood :" + woodInventory.ToString() + "   \nCloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   \nFood:"+foodInventory;
 
         //Check Inventory fullness
         if (totalInventory >= maxInventory)
         {
-            invText.text += "\n Too Many Items! Press Space to drop some";
+            SpacePrompt();
+            playerText.text += "\n Too Many Items! Press Space to drop some";
         }
 
         //Check if Speedboost Equipped
@@ -259,9 +262,14 @@ public class PlayerController : MonoBehaviour
     private void Dying()
     {
         Instantiate(Particles, transform.position, transform.rotation);
-        Destroy(invText);
+        Destroy(playerText);
         Destroy(gameObject);
         
+    }
+
+    void SpacePrompt()
+    {
+        playerSphere.GetComponent<KeyPrompt>().Show();
     }
     
 
