@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
     public ParticleSystem Particles;
     public Text invText;
-
+    public GameObject TutorialController;
     [Space(5)]
     [Header("Speed Variables")]
     public float boostedSpeed = 20f;
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         mainCameraTransform = Camera.main.transform;
+
     }
     void Update()
     {
@@ -114,8 +115,11 @@ public class PlayerController : MonoBehaviour
         float waterLevel = Water.GetComponent<Transform>().position.y;
         if (waterLevel > (transform.position.y + 2))
         {
+            TutorialController.GetComponent<TutorialController>().isDead = true;
             Dying(); 
+            
         }
+
 
         //if not on Platform
         onPlatform = false;
@@ -231,6 +235,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         
     }
+    
 
 }
     
