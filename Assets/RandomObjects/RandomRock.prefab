@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1136657386947309788
+--- !u!1 &2509819951411500675
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2199338747821130639}
-  - component: {fileID: 8856113214312641563}
+  - component: {fileID: 375189947880357720}
+  - component: {fileID: 700325442966566909}
   m_Layer: 0
-  m_Name: RandomPalmTree
+  m_Name: RandomRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2199338747821130639
+--- !u!4 &375189947880357720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136657386947309788}
+  m_GameObject: {fileID: 2509819951411500675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 572.098, y: -185.65956, z: 231.66968}
+  m_LocalPosition: {x: 339.80783, y: -30.032791, z: 215.53351}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8856113214312641563
+--- !u!114 &700325442966566909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136657386947309788}
+  m_GameObject: {fileID: 2509819951411500675}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb35f539665bec4e82b711ec5f808ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotateAroundYAxis: 1
   IsRandomized: 0
+  ScaleAxesSeparately: 1
+  XScaleRange: {x: 2, y: 3}
+  YScaleRange: {x: 1, y: 2}
+  ZScaleRange: {x: 2, y: 3}
   prefabs:
-  - {fileID: -927199367670048503, guid: 1b3d55d68129b314ab1429494fc6a5ca, type: 3}
-  - {fileID: -927199367670048503, guid: 7e16d85b1c86f0543996af8690e94521, type: 3}
-  - {fileID: -927199367670048503, guid: 2e9537d463496c4489e01229eded5061, type: 3}
-  - {fileID: -927199367670048503, guid: 7b2f118ff50751a4c80d329943f137f7, type: 3}
+  - {fileID: 5721033644739444922, guid: cd3c4fb892e24c84c9004cad56ce3b10, type: 3}
+  - {fileID: 6231333236801160042, guid: 7e7fd1e428179504795ea8edeba2dbbd, type: 3}
