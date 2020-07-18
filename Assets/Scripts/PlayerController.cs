@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Space(5)]
     [Header("Speed Variables")]
-    public float boostedSpeed = 20f;
+    public float boostedSpeed = 5f;
     private bool SpeedBoost = false;
     public float maxSpeed = 10f;
     public float movementSpeed = 10f;
@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
         //Check if Speedboost Equipped
         if (SpeedBoost)
         {
-            maxSpeed = boostedSpeed;
+            maxSpeed += boostedSpeed;
+            SpeedBoost = false;
         }
 
         //Drop items ---------------------------------------------------------
@@ -126,10 +127,7 @@ public class PlayerController : MonoBehaviour
         float waterLevel = Water.GetComponent<Transform>().position.y;
         if (waterLevel > (transform.position.y + 2))
         {
-            if (TutorialController != null)
-            {
-                TutorialController.GetComponent<TutorialController>().isDead = true;
-            }
+            TutorialController.GetComponent<TutorialController>().isDead = true;
             Dying(); 
             
         }

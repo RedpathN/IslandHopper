@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Water
+  m_Name: WaterWithoutCoastline
   m_Shader: {fileID: 4800000, guid: 281b26def6d30de4cbdf2a3ee8dd0cf1, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
@@ -97,7 +97,7 @@ Material:
     - _SpeedMulti: 10.1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaterHeight: 0.25
+    - _WaterHeight: 0.2
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.27058828, g: 0.70869124, b: 1, a: 0.37254903}
