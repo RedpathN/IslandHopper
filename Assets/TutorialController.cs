@@ -26,6 +26,11 @@ public class TutorialController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
 
         if (!isDead)
         {
@@ -56,7 +61,7 @@ public class TutorialController : MonoBehaviour
                 tutorialText.text = "Press Space while standing on the platform to stash your items";
             }
 
-            if (tutorialStage == 4 && Input.GetKey(KeyCode.Space))
+            if (tutorialStage == 4 && Input.GetKey(KeyCode.Space) && onPlatform)
             {
                 tutorialStage = 5;
                 tutorialText.text = "When you've collected enough items, you can set sail! Be quick, the water is rising";
@@ -70,11 +75,7 @@ public class TutorialController : MonoBehaviour
         if (isDead)
         {
             tutorialText.text = "You died. Press R to restart";
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
-            }
+         
         }
         // ---------------------------------------------------------------------
 
