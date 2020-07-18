@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoatPlatformController : MonoBehaviour
 {
@@ -16,11 +17,20 @@ public class BoatPlatformController : MonoBehaviour
 
     public bool collectedAll = false;
 
+    public Text platformText;
+
     private void Update()
     {
+        platformText.text = DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded);
         if (woodCollected >= woodNeeded && ropeCollected >= ropeNeeded && clothCollected >= clothNeeded && foodCollected >= foodNeeded) 
         {
             collectedAll = true;
         }
+    }
+
+    private string DisplayText(string name, float collected, float needed)
+    {
+        string allText = name + ": " + collected.ToString() + "/" + needed.ToString() + "\n";
+        return allText;
     }
 }

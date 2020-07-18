@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
+
+        //Update text
+        invText.text = "Inventory \n\nWood :" + woodInventory.ToString() + "\ncloth: " + clothInventory.ToString() +"\nrope: "+ ropeInventory.ToString()+"\nFood:"+foodInventory;
+        
         //Check if Speedboost Equipped
         if (SpeedBoost)
         {
@@ -105,7 +109,8 @@ public class PlayerController : MonoBehaviour
 
         Move();
 
-        //Slow down player with more items
+
+        //Slow down player with more items-----------------------------------------
         movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
 
         //Check if drowning
@@ -163,6 +168,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+
         if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "PowerUp")
         {
             Destroy(collision.gameObject);
@@ -187,6 +194,7 @@ public class PlayerController : MonoBehaviour
     private void Dying()
     {
         Instantiate(Particles, transform.position, transform.rotation);
+        Destroy(invText);
         Destroy(gameObject);
         
     }
