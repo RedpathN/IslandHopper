@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class WaterRise : MonoBehaviour
 {
-    public float TimeBeforeStartRiseSeconds = 0;
+    public bool IsRising = true;
     public float WaterStartHeight;
     public float WaterEndHeight;
     public float RiseTimeMinutes;
@@ -30,7 +30,7 @@ public class WaterRise : MonoBehaviour
     {
         timeSinceStart += Time.deltaTime;
 
-        if (Application.isPlaying && timeSinceStart > TimeBeforeStartRiseSeconds)
+        if (Application.isPlaying && IsRising)
         {
             if (transform.position.y < WaterEndHeight)
             {
