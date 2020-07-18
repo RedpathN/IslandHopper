@@ -1,13 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public GameObject Wood;
+    public GameObject Cloths;
+    public GameObject Rope;
+    public GameObject Food;
+
     public GameObject Water;
     public GameObject Player;
     public ParticleSystem Particles;
+    
+    public Text invText;
+
+
     public float boostedSpeed = 20f;
     public bool SpeedBoost = false;
     public float maxSpeed = 10f;
@@ -19,12 +28,15 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 1f;
 
     public float woodInventory = 0;
+    public float clothInventory = 0;
+    public float ropeInventory = 0;
+    public float foodInventory = 0;
+    public float totalInventory = 0;
     public float maxInventory = 20;
 
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
-    public bool isDying = false;
-    
+
 
     private void Start()
     {
@@ -33,21 +45,63 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
         //Check if Speedboost Equipped
         if (SpeedBoost)
         {
             maxSpeed = boostedSpeed;
         }
 
-        //Drop an item
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Drop an items ---------------------------------------------------------
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (woodInventory > 0)
             {
+                Vector3 newPosition = transform.position;
+                newPosition.z -= 1;
                 woodInventory--;
+                Instantiate(Wood, newPosition, transform.rotation);
             }
         }
-   
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (clothInventory > 0)
+            {
+                Vector3 newPosition = transform.position;
+                newPosition.z -= 1;
+                clothInventory--;
+                Instantiate(Cloths, newPosition, transform.rotation);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (ropeInventory > 0)
+            {
+                Vector3 newPosition = transform.position;
+                newPosition.z -= 1;
+                ropeInventory--;
+                Instantiate(Rope, newPosition, transform.rotation);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (foodInventory > 0)
+            {
+                Vector3 newPosition = transform.position;
+                newPosition.z -= 1;
+                foodInventory--;
+                Instantiate(Food, newPosition, transform.rotation);
+            }
+        }
+        //---------------------------------------------------------------------------
+        
+
+
+
+
 
         Move();
 
@@ -55,14 +109,10 @@ public class PlayerController : MonoBehaviour
         movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
 
         //Check if drowning
-        isDying = false;
         float waterLevel = Water.GetComponent<Transform>().position.y;
         if (waterLevel > (transform.position.y + 2))
         {
-            isDying = true;
-            print("Dying!!!");
-            Dying();
-           
+            Dying(); 
         }
         
 
@@ -121,11 +171,23 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Platform")
+        {
+            collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
+            woodInventory = 0;
+
+            collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
+            clothInventory = 0;
+
+        }
+    }
+
     private void Dying()
     {
         Instantiate(Particles, transform.position, transform.rotation);
         Destroy(gameObject);
-
         
     }
 
