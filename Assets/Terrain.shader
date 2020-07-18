@@ -2,11 +2,18 @@
 {
     Properties
     {
-        _TopColor ("Top Color", Color) = (0.0,0.5,0.2,1)
-		_SideColor ("Side Color", Color) = (0.8, 0.8, 0.8, 1)
+		_TopTexAlbedo ("Top Tex Albedo", 2D) = "white" {}
+		_TopTexAO("Top Tex Ambient Occlusion", 2D) = "white" {}
+		_TopTexNM("Top Tex NM", 2D) = "white" {}
+		_TopTexMTL ("Top Tex Metallic", 2D) = "white" {}
+		_TopSmoothness("Top Smoothness", Range(0,1)) = 0.5
+
+		_SideTexAlbedo("Side Tex Albedo", 2D) = "white" {}
+		_SideTexAO("Side Tex Ambient Occlusion", 2D) = "white" {}
+		_SideTexNM("Side Tex NM", 2D) = "white" {}
+		_SideTexMTL("Side Tex Metallic", 2D) = "white" {}
+
 		_Sharpness("Sharpness", Range(0,10)) = 0.5
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
 		_WaterHeight ("Water Height", Range(0, 100)) = 0.2
 		_WaterDeepColor("Water Deep Color", Color) = (0.0320, 0.42, 0.97, 0.69)
     }
@@ -22,21 +29,27 @@
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
-        sampler2D _MainTex;
+        sampler2D _TopTexAlbedo;
+		sampler2D _TopTexAO;
+		sampler2D _TopTexNM;
+		sampler2D _TopTexMTL;
+		float _TopSmoothness;
+
+		sampler2D _SideTexAlbedo;
+		sampler2D _SideTexAO;
+		sampler2D _SideTexNM;
+		sampler2D _SideTexMTL;
+		float _SideSmoothness;
 
         struct Input
         {
-            float2 uv_MainTex;
 			float3 worldPos;
         };
 
-        half _Glossiness;
-		half _Metallic;
 		float _Sharpness;
 		float _WaterHeight;
-		fixed4 _TopColor;
-		fixed4 _SideColor;
-		fixed4 _WaterDeepColor;
+
+		float4 _WaterDeepColor;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -47,26 +60,46 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
+			float2 topuv = IN.worldPos.xz;
+			float2 side1uv = IN.worldPos.zy;
+			float2 side2uv = IN.worldPos.xy;
 
-			fixed3 weights = o.Normal;
+			float4 topAlbedo = tex2D(_TopTexAlbedo, topuv);
+			float topAO = tex2D(_TopTexAO, topuv);
+			float3 topNM = tex2D(_SideTexNM, topuv);
+			float topMTL = tex2D(_TopTexMTL, topuv);
+
+			float4 side1Albedo = tex2D(_SideTexAlbedo, side1uv);
+			float side1AO = tex2D(_SideTexAO, side1uv);
+			float3 side1NM = tex2D(_SideTexNM, side1uv);
+			float side1MTL = tex2D(_SideTexMTL, side1uv);
+
+			float4 side2Albedo = tex2D(_SideTexAlbedo, side2uv);
+			float side2AO = tex2D(_SideTexAO, side2uv);
+			float3 side2NM = tex2D(_SideTexNM, side2uv);
+			float side2MTL = tex2D(_SideTexMTL, side2uv);
+			
+			float3 weights = o.Normal;
 			weights = abs(weights);
 			weights = pow(weights, _Sharpness);
 			weights = normalize(weights);
-			fixed4 rightComponent = weights.x * _SideColor;
-			fixed4 topComponent = weights.y * _TopColor;
-			fixed4 forwardComponent = weights.z * _SideColor;
-			fixed4 color = rightComponent + forwardComponent + topComponent;
+
+			float4 albedo = weights.x * side1Albedo + weights.y * topAlbedo + weights.z * side2Albedo;
+			float smoothness = weights.x * _SideSmoothness + weights.y * _TopSmoothness + weights.z * _SideSmoothness;
+			float metallic = weights.x * side1MTL + weights.y * topAlbedo + weights.z * side2MTL;
+			float ao = weights.x * side1AO + weights.y * topAO + weights.z * side2AO;
 			
-			float waterDepthFactor = min(10., max(0., (_WaterHeight - IN.worldPos.y))) / 10.;
-			waterDepthFactor = pow(waterDepthFactor, 3);
-			color = (1. - waterDepthFactor) * color + waterDepthFactor * _WaterDeepColor;
+			float waterDepthFactor = min(5., max(0., (_WaterHeight - IN.worldPos.y))) / 5.;
+			waterDepthFactor = pow(waterDepthFactor, 1);
+			albedo = (1. - waterDepthFactor) * albedo + waterDepthFactor * _WaterDeepColor;
 
             // Albedo comes from a texture tinted by color
-            o.Albedo = color.rgb;
+            o.Albedo = albedo.rgb;
             // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
+            o.Metallic = metallic;
+            o.Smoothness = smoothness;
             o.Alpha = 1.;
+			o.Occlusion = ao;
         }
         ENDCG
     }
