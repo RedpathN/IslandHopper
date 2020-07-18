@@ -6,34 +6,37 @@ using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("GameObjects")]
     public GameObject Wood;
     public GameObject Cloths;
     public GameObject Rope;
     public GameObject Food;
-
     public GameObject Water;
     public GameObject Player;
     public ParticleSystem Particles;
-    
     public Text invText;
-
-
+    public GameObject TutorialController;
+    [Space(5)]
+    [Header("Speed Variables")]
     public float boostedSpeed = 20f;
-    public bool SpeedBoost = false;
+    private bool SpeedBoost = false;
     public float maxSpeed = 10f;
     public float movementSpeed = 10f;
     public float currentSpeed = 0;
-    public float speedSmoothVelocity = 0f;
-    public float speedSmoothTime = 0.1f;
+    private float speedSmoothVelocity = 0f;
+    private float speedSmoothTime = 0.1f;
     public float gravity = 7f;
     public float rotationSpeed = 1f;
-
+    [Space(5)]
+    [Header("Inventory")]
     public float woodInventory = 0;
     public float clothInventory = 0;
     public float ropeInventory = 0;
     public float foodInventory = 0;
     public float totalInventory = 0;
     public float maxInventory = 20;
+
+    private bool onPlatform = false;
 
     private Transform mainCameraTransform = null;
     private CharacterController controller = null;
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         mainCameraTransform = Camera.main.transform;
+
     }
     void Update()
     {
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
         //Check Inventory fullness
         if (totalInventory == maxInventory)
         {
-            invText.text += "\n Too Many Items! Press '1' '2' '3' or '4'";
+            invText.text += "\n Too Many Items! Press Space to drop some";
         }
 
         //Check if Speedboost Equipped
@@ -65,7 +69,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Drop an items ---------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        if (Input.GetKeyDown(KeyCode.Space) && !onPlatform)
         {
             if (woodInventory > 0)
             {
@@ -73,34 +78,19 @@ public class PlayerController : MonoBehaviour
                 newPosition.z -= 1;
                 woodInventory--;
                 Instantiate(Wood, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (clothInventory > 0)
-            {
-                Vector3 newPosition = transform.position;
-                newPosition.z -= 1;
-                clothInventory--;
-                Instantiate(Cloths, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (ropeInventory > 0)
+            } else if (clothInventory > 0)
+                {
+                    Vector3 newPosition = transform.position;
+                    newPosition.z -= 1;
+                    clothInventory--;
+                    Instantiate(Cloths, newPosition, transform.rotation);
+                } else if (ropeInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
                 ropeInventory--;
                 Instantiate(Rope, newPosition, transform.rotation);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            if (foodInventory > 0)
+            } else if (foodInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
@@ -108,6 +98,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(Food, newPosition, transform.rotation);
             }
         }
+        
         //---------------------------------------------------------------------------
         
 
@@ -125,9 +116,14 @@ public class PlayerController : MonoBehaviour
         float waterLevel = Water.GetComponent<Transform>().position.y;
         if (waterLevel > (transform.position.y + 2))
         {
+            TutorialController.GetComponent<TutorialController>().isDead = true;
             Dying(); 
+            
         }
-        
+
+
+        //if not on Platform
+        onPlatform = false;
 
 
     }
@@ -220,26 +216,29 @@ public class PlayerController : MonoBehaviour
             SpeedBoost = true;
         }
 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform")
         {
-            collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
-            woodInventory = 0;
+            onPlatform = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
+                woodInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
-            clothInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
+                clothInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
-            ropeInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
+                ropeInventory = 0;
 
-            collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
-           foodInventory = 0;
+                collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
+                foodInventory = 0;
+            }
 
         }
+
     }
+
+
 
     private void Dying()
     {
@@ -248,6 +247,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         
     }
+    
 
 }
     
