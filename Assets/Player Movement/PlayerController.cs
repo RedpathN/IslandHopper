@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -166,6 +167,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
+        string[] items = { "Wood", "Rope", "Cloth", "Food", "PowerUp" };
+
+        var keyPromptCmpts = collision.gameObject.GetComponents<KeyPrompt>();
+        if (keyPromptCmpts.Any())
+        {
+            foreach (var keyPrompt in keyPromptCmpts)
+            {
+                keyPrompt.Show();
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Wood")
         {
             if (woodInventory < 20)
