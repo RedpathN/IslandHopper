@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         invText.text = "Inventory \nWood :" + woodInventory.ToString() + "   \nCloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   \nFood:"+foodInventory;
 
         //Check Inventory fullness
-        if (totalInventory == maxInventory)
+        if (totalInventory >= maxInventory)
         {
             invText.text += "\n Too Many Items! Press Space to drop some";
         }
@@ -111,6 +111,10 @@ public class PlayerController : MonoBehaviour
 
         //Slow down player with more items-----------------------------------------
         movementSpeed = maxSpeed * (1 - (totalInventory / maxInventory));
+        if (movementSpeed < 0)
+        {
+            movementSpeed = 0;
+        }
 
 
         //Check if drowning
@@ -218,6 +222,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Platform")
         {
+            collision.gameObject.GetComponent<KeyPrompt>().Show();
             onPlatform = true;
             if (Input.GetKeyDown(KeyCode.Space))
             {

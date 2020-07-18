@@ -238,22 +238,22 @@ PrefabInstance:
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.94667697
+      value: 0.94667685
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.3221792
+      value: -0.32217923
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00013577867
+      value: -0.00013577884
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0018630788
+      value: -0.0018630185
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 681889839955284952, guid: 2eda4020a736fb14b88a076e20b6978c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: -190
       objectReference: {fileID: 0}
     - target: {fileID: 681889839955284952, guid: 2eda4020a736fb14b88a076e20b6978c,
         type: 3}
@@ -1032,6 +1032,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afbeff3933d725344a1e81b036800155, type: 3}
+--- !u!1 &908887081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8269312153303347665, guid: f54a3d951e14c84408bd52b6fedfc528,
+    type: 3}
+  m_PrefabInstance: {fileID: 1084715479}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &908887082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908887081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2030d5f758ff54747965e573847c86c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPrompt: {fileID: 5757883138807496461, guid: 6b4c0a4c10d75fa49baf8753e796cbf3,
+    type: 3}
+  StartActive: 0
+  HideAfterSeconds: 0.05
 --- !u!1 &960294468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,12 +1609,12 @@ PrefabInstance:
     - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
       propertyPath: WaterEndHeight
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
       propertyPath: RiseTimeMinutes
-      value: 1.5
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: -7034977587667870543, guid: 0854828e4fe17d54297372b8802a5527,
         type: 3}
