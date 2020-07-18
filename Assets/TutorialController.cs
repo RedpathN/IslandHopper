@@ -11,14 +11,17 @@ public class TutorialController : MonoBehaviour
     public GameObject player;
     public Text tutorialText;
     public bool isDead = false;
+    public GameObject Water;
 
     public float tutorialStage = 0;
     private float Inventory = 0;
-    private bool onPlatform = false;
+    public bool onPlatform = false;
 
     private void Start()
     {
         tutorialText.text = "Use Mouse to look around \nUse WASD to move \nPress E to pick up objects";
+        Water.GetComponent<WaterRise>().IsRising = false;
+
     }
     // Update is called once per frame
     void Update()
@@ -57,7 +60,7 @@ public class TutorialController : MonoBehaviour
             {
                 tutorialStage = 5;
                 tutorialText.text = "When you've collected enough items, you can set sail! Be quick, the water is rising";
-                //Start water rising now
+                Water.GetComponent<WaterRise>().IsRising = true;
 
             }
         }

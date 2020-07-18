@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private float speedSmoothTime = 0.1f;
     public float gravity = 7f;
     public float rotationSpeed = 1f;
+
     public bool onPlatform = false;
 
     [Space(5)]
@@ -51,6 +52,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+
+
         totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
      
 
@@ -119,9 +122,8 @@ public class PlayerController : MonoBehaviour
             
         }
 
+    
 
-        //if not on Platform
-        onPlatform = false;
 
 
     }
@@ -235,6 +237,17 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Platform") {
+            onPlatform = false;
+        }
+            //if not on Platform
+            
+    }
+
 
 
 
