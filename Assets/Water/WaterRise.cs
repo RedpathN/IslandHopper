@@ -10,6 +10,8 @@ public class WaterRise : MonoBehaviour
     public float WaterEndHeight;
     public float RiseTimeMinutes;
 
+    public Material NoCoastlineMaterial;
+
     public GameObject Terrain;
 
     private float timeSinceStart = 0;
@@ -39,6 +41,7 @@ public class WaterRise : MonoBehaviour
         }
 
         GetComponent<Renderer>().sharedMaterial.SetFloat("_WaterHeight", transform.position.y);
+        NoCoastlineMaterial.SetFloat("_WaterHeight", transform.position.y);
 
         if (Terrain != null)
         {

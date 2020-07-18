@@ -9,7 +9,7 @@
         _Glossiness ("Smoothness", Range(0,1)) = 0.033
         _Metallic ("Metallic", Range(0,1)) = 0.042
 
-		_DepthTex ("Water Depth Texture", 2D) = "white" {}
+		_DepthTex ("Water Depth Texture", 2D) = "black" {}
 		_NormalMapTex1 ("Normal Map", 2D) = "white" {}
 		_NormalMapTex2 ("Normal Map2", 2D) = "white" {}
 
