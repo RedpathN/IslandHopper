@@ -9,6 +9,8 @@ public class WaterRise : MonoBehaviour
     public float WaterEndHeight;
     public float RiseTimeMinutes;
 
+    public GameObject Terrain;
+
     private float WaterRiseSpeed = 1.0f;
 
     // Start is called before the first frame update
@@ -25,5 +27,8 @@ public class WaterRise : MonoBehaviour
     void Update()
     {
         transform.position = transform.position += new Vector3(0.0f, WaterRiseSpeed, 0.0f);
+
+        GetComponent<Renderer>().sharedMaterial.SetFloat("_WaterHeight", transform.position.y);
+        Terrain.GetComponent<Terrain>().materialTemplate.SetFloat("_WaterHeight", transform.position.y);
     }
 }
