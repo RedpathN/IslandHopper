@@ -8,6 +8,10 @@ TagManager:
   - Ground
   - PowerUp
   - Platform
+  - Food
+  - Wood
+  - Rope
+  - Cloth
   layers:
   - Default
   - TransparentFX

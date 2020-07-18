@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
 
         //Update text
-        invText.text = "Inventory \n\nWood :" + woodInventory.ToString() + "\ncloth: " + clothInventory.ToString() +"\nrope: "+ ropeInventory.ToString()+"\nFood:"+foodInventory;
+        invText.text = "Inventory \n\nWood :" + woodInventory.ToString() + "   Cloth: " + clothInventory.ToString() +"\nRope: "+ ropeInventory.ToString()+"   Food:"+foodInventory;
         
         //Check if Speedboost Equipped
         if (SpeedBoost)
@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
 
         //Slow down player with more items-----------------------------------------
-        movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
+        movementSpeed = maxSpeed * (1 - (totalInventory / maxInventory));
 
         //Check if drowning
         float waterLevel = Water.GetComponent<Transform>().position.y;
@@ -159,7 +159,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Item")
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Wood")
         {
             if (woodInventory < 20)
             {
@@ -168,7 +168,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Rope")
+        {
+            if (woodInventory < 20)
+            {
+                ropeInventory++;
+                Destroy(collision.gameObject);
+            }
+        }
 
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Cloth")
+        {
+            if (woodInventory < 20)
+            {
+                clothInventory++;
+                Destroy(collision.gameObject);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Food")
+        {
+            if (woodInventory < 20)
+            {
+                foodInventory++;
+                Destroy(collision.gameObject);
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "PowerUp")
         {
@@ -187,6 +212,12 @@ public class PlayerController : MonoBehaviour
 
             collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
             clothInventory = 0;
+
+            collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
+            ropeInventory = 0;
+
+            collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
+           foodInventory = 0;
 
         }
     }
