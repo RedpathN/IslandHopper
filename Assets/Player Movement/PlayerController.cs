@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Wood;
     public GameObject Water;
     public GameObject Player;
+    public ParticleSystem Particles;
     public float boostedSpeed = 20f;
     public bool SpeedBoost = false;
     public float maxSpeed = 10f;
@@ -14,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float currentSpeed = 0;
     public float speedSmoothVelocity = 0f;
     public float speedSmoothTime = 0.1f;
-    public float gravity = 3f;
+    public float gravity = 7f;
     public float rotationSpeed = 1f;
 
     public float woodInventory = 0;
@@ -54,11 +55,14 @@ public class PlayerController : MonoBehaviour
         movementSpeed = maxSpeed * (1 - (woodInventory / maxInventory));
 
         //Check if drowning
+        isDying = false;
         float waterLevel = Water.GetComponent<Transform>().position.y;
-        if (waterLevel > transform.position.y)
+        if (waterLevel > (transform.position.y + 2))
         {
-
+            isDying = true;
             print("Dying!!!");
+            Dying();
+           
         }
         
 
@@ -97,9 +101,10 @@ public class PlayerController : MonoBehaviour
         controller.Move(gravityVector * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Item")
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Item")
         {
             if (woodInventory < 20)
             {
@@ -108,16 +113,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag == "PowerUp")
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "PowerUp")
         {
             Destroy(collision.gameObject);
             SpeedBoost = true;
         }
+
     }
 
     private void Dying()
     {
+        Instantiate(Particles, transform.position, transform.rotation);
+        Destroy(gameObject);
 
+        
     }
 
 }
