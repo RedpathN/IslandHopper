@@ -19,14 +19,12 @@ public class PickupItem : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-
-            gameObject.GetComponent<KeyPrompt>().Show();
+        if (other.gameObject.tag == "Player") {
+            
+             gameObject.GetComponent<KeyPrompt>().Show();
 
             if (this.gameObject.tag == "Platform")
             {
-                //Debug.Log("On the platform");
                 other.GetComponent<PlayerController>().onPlatform = true;
                 if (Input.GetKey(KeyCode.Space))
                 {
@@ -54,9 +52,8 @@ public class PickupItem : MonoBehaviour
                     }
 
                 }
-
             }
-
+            if (Input.GetKey(KeyCode.E))
             {
                 if (Input.GetKey(KeyCode.E))
                 {
