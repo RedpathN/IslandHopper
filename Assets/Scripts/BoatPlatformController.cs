@@ -88,6 +88,14 @@ public class BoatPlatformController : MonoBehaviour
         {
             SceneManager.LoadScene("Level 1");
         }
+        else if (scene.name == "Level 1")
+        {
+            SceneManager.LoadScene("Level 2");
+        }
+        else if (scene.name == "Level 2")
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
 }
