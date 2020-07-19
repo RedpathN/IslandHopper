@@ -1915,6 +1915,11 @@ PrefabInstance:
       propertyPath: m_Orbits.Array.data[0].m_Height
       value: 19.08
       objectReference: {fileID: 0}
+    - target: {fileID: 6216599723673737061, guid: ec1793e7967f99e40a459fc57c9d009a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1793e7967f99e40a459fc57c9d009a, type: 3}
 --- !u!1001 &1936935393
