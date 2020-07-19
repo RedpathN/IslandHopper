@@ -63,6 +63,7 @@ public class BoatPlatformController : MonoBehaviour
             platformText.text = "Ready to set sail! \n\n\n" + DisplayText("Wood", woodCollected, woodNeeded) + DisplayText("Rope", ropeCollected, ropeNeeded) + DisplayText("Cloth", clothCollected, clothNeeded) + DisplayText("Food", foodCollected, foodNeeded); ;
             if (!fireworkActivated)
             {
+                Jukebox.Instance.PlaySFX("Victory");
                 Instantiate(fireworks, this.transform.position, this.transform.rotation);
                 fireworkActivated = true;
                 Invoke("nextLevel", 5f);
