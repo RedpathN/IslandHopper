@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
     public ParticleSystem Particles;
     public Text playerText;
+    public Text tutorialText;
     public GameObject TutorialController;
     public GameObject playerSphere;
 
@@ -125,12 +127,17 @@ public class PlayerController : MonoBehaviour
 
         //Check if drowning
         float waterLevel = Water.GetComponent<Transform>().position.y;
+
         if (waterLevel > (transform.position.y + 2))
         {
+
+            tutorialText.text = "You died. Press R to restart";
+
             if (TutorialController != null)
             {
                 TutorialController.GetComponent<TutorialController>().isDead = true;
             }
+
             Dying(); 
             
         }
