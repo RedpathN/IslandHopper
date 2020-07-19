@@ -22,6 +22,13 @@ public class BoatPlatformController : MonoBehaviour
     public Text platformText;
     public ParticleSystem fireworks;
 
+    public GameObject Raft;
+
+    private void Start()
+    {
+        Raft.SetActive(false);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -66,8 +73,7 @@ public class BoatPlatformController : MonoBehaviour
                 Jukebox.Instance.PlaySFX("Victory");
                 Instantiate(fireworks, this.transform.position, this.transform.rotation);
                 fireworkActivated = true;
-                Invoke("nextLevel", 5f);
-                
+                Raft.SetActive(true);
             } 
         }
     }
@@ -80,22 +86,6 @@ public class BoatPlatformController : MonoBehaviour
             allText = "<color=green>" + allText + "</color>";
         }
         return allText;
-    }
-
-    void nextLevel() {
-        Scene scene = SceneManager.GetActiveScene();
-        if(scene.name == "Tutorial Level")
-        {
-            SceneManager.LoadScene("Level 1");
-        }
-        else if (scene.name == "Level 1")
-        {
-            SceneManager.LoadScene("Level 2");
-        }
-        else if (scene.name == "Level 2")
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
     }
 
 }

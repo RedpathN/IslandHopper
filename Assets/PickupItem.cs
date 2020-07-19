@@ -25,7 +25,6 @@ public class PickupItem : MonoBehaviour
 
             if (this.gameObject.tag == "Platform")
             {
-                Debug.Log("On the platform");
                 other.GetComponent<PlayerController>().onPlatform = true;
                 if (Input.GetKey(KeyCode.Space))
                 {
