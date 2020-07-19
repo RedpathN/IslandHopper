@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4597f227e133e014fb1e07f231e6fe20, type: 3}
   - {fileID: 8300000, guid: c5ac20e4eb91cb04fb7bc894f7fb820d, type: 3}
   - {fileID: 8300000, guid: cffdab49a5ba316468116131682d8a67, type: 3}
+  - {fileID: 8300000, guid: df7925cbafe518c40974517b1633cd12, type: 3}
   - {fileID: 8300000, guid: 495194eddc1a5ff4aa0ed1b4f98a8e40, type: 3}
   - {fileID: 8300000, guid: 68f757b792ca8894e8a0aa10b80857e3, type: 3}
   - {fileID: 8300000, guid: dedaf987edbc52d4293a730921c5ea48, type: 3}
@@ -72,6 +73,7 @@ MonoBehaviour:
   - PickUpItem2
   - PutDownItem1
   - PutDownItem2
+  - PutDownItem3
   - PutDownItemLow1
   - PutDownItemLow2
   - SpeedBoost
