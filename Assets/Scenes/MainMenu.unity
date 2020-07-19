@@ -276,6 +276,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &204629071
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 422863726882995540, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_Name
+      value: Jukebox
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -31.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 183.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 294.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422863726882995529, guid: 8d3103337e4d683478a6fcc62ae1d130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d3103337e4d683478a6fcc62ae1d130, type: 3}
 --- !u!1 &220240911
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +486,18 @@ MonoBehaviour:
   Selectable: {fileID: 0}
   showOnStates:
   - Default
+--- !u!114 &257138429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257138427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10e1e0e22c834240a6854f2626a64d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &719307075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,7 +508,7 @@ PrefabInstance:
     - target: {fileID: 7308244262256311549, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
       propertyPath: m_Name
-      value: Instructions
+      value: Story
       objectReference: {fileID: 0}
     - target: {fileID: 7308244262256311548, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
@@ -537,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 7308244263950511199, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7308244263950511199, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
@@ -557,7 +638,12 @@ PrefabInstance:
     - target: {fileID: 7308244263950511199, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
       propertyPath: m_text
-      value: Instructions
+      value: Story
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244263950511199, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
         type: 3}
@@ -799,7 +885,7 @@ GameObject:
   - component: {fileID: 1251848320}
   - component: {fileID: 1251848322}
   m_Layer: 5
-  m_Name: Story
+  m_Name: StoryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1624,7 +1710,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions go here!
+  m_text: 'Scavenge for resources to build a raft, hopping to the next island!
+
+
+    Gameplay is explained in a tutorial.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b5cc56a049e28f429d4ccfd3ab0f776, type: 2}
   m_sharedMaterial: {fileID: 4519137861164703116, guid: 8b5cc56a049e28f429d4ccfd3ab0f776,
@@ -1694,12 +1783,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2001542752}
-    characterCount: 21
+    characterCount: 105
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 18
+    wordCount: 18
     linkCount: 0
-    lineCount: 1
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1856,6 +1945,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 257138429}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadSceneByName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308244262256311551, guid: 46402f0326e73a44d8ba280c305a36e2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Tutorial Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46402f0326e73a44d8ba280c305a36e2, type: 3}
