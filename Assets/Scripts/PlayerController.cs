@@ -208,8 +208,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnCollisionStay(Collision collision)
-    {
+    //private void OnCollisionStay(Collision collision)
+    //{
         //string[] items = { "Wood", "Rope", "Cloth", "Food", "PowerUp" };
 
         //var keyPromptCmpts = collision.gameObject.GetComponents<KeyPrompt>();
@@ -269,42 +269,42 @@ public class PlayerController : MonoBehaviour
         //    Jukebox.Instance.PlaySFX("SpeedBoost");
         //}
 
-        if (collision.gameObject.tag == "Platform")
-        {
-            collision.gameObject.GetComponent<KeyPrompt>().Show();
-            onPlatform = true;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
-                if (totalInventory > 0)
-                    Jukebox.Instance.PlaySFX("PutDownItem3");
+    //    if (collision.gameObject.tag == "Platform")
+    //    {
+    //        collision.gameObject.GetComponent<KeyPrompt>().Show();
+    //        onPlatform = true;
+    //        if (Input.GetKeyDown(KeyCode.Space))
+    //        {
+    //            totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
+    //            if (totalInventory > 0)
+    //                Jukebox.Instance.PlaySFX("PutDownItem3");
 
-                collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
-                woodInventory = 0;
+    //            collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
+    //            woodInventory = 0;
 
-                collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
-                clothInventory = 0;
+    //            collision.gameObject.GetComponent<BoatPlatformController>().clothCollected += clothInventory;
+    //            clothInventory = 0;
 
-                collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
-                ropeInventory = 0;
+    //            collision.gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeInventory;
+    //            ropeInventory = 0;
 
-                collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
-                foodInventory = 0;
-            }
+    //            collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
+    //            foodInventory = 0;
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
 
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Platform") {
-            onPlatform = false;
-        }
-            //if not on Platform
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Platform") {
+    //        onPlatform = false;
+    //    }
+    //        //if not on Platform
             
-    }
+    //}
 
 
 

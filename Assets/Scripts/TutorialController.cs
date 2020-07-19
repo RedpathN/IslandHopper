@@ -101,7 +101,7 @@ public class TutorialController : MonoBehaviour
                 if (tutorialStage == 2)
                 {
                     timeSinceShown += Time.deltaTime;
-                    Debug.Log(timeSinceShown);
+                    
                     if (timeSinceShown >= 7f)
                     {
                         tutorialText.text = "";
