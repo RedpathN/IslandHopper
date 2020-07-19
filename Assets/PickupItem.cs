@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupItem : MonoBehaviour
-{ 
+{
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -55,46 +55,49 @@ public class PickupItem : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.E))
             {
-
-                if (this.gameObject.tag == "Food")
+                if (Input.GetKey(KeyCode.E))
                 {
-                    other.gameObject.GetComponent<PlayerController>().foodInventory +=1;
-                    Destroy(gameObject);
-                    Jukebox.Instance.PlaySFX("PickUpItem1");
 
+                    if (this.gameObject.tag == "Food")
+                    {
+                        other.gameObject.GetComponent<PlayerController>().foodInventory += 1;
+                        Destroy(gameObject);
+                        Jukebox.Instance.PlaySFX("PickUpItem1");
+
+                    }
+                    else if (this.gameObject.tag == "Wood")
+                    {
+                        other.gameObject.GetComponent<PlayerController>().woodInventory++;
+                        Destroy(gameObject);
+                        Jukebox.Instance.PlaySFX("PickUpItem1");
+
+                    }
+                    else if (this.gameObject.tag == "Rope")
+                    {
+                        other.gameObject.GetComponent<PlayerController>().ropeInventory += 1;
+                        Destroy(gameObject);
+                        Jukebox.Instance.PlaySFX("PickUpItem2");
+
+                    }
+                    else if (this.gameObject.tag == "Cloth")
+                    {
+                        other.gameObject.GetComponent<PlayerController>().clothInventory++;
+                        Destroy(gameObject);
+                        Jukebox.Instance.PlaySFX("PickUpItem2");
+
+                    }
+
+                    else if (this.gameObject.tag == "PowerUp")
+                    {
+                        other.gameObject.GetComponent<PlayerController>().SpeedBoost = true;
+                        Destroy(gameObject);
+                        Jukebox.Instance.PlaySFX("SpeedBoost");
+
+                    }
                 }
-                else if (this.gameObject.tag == "Wood")
-                {
-                    other.gameObject.GetComponent<PlayerController>().woodInventory++;
-                    Destroy(gameObject);
-                    Jukebox.Instance.PlaySFX("PickUpItem1");
 
-                }
-                else if (this.gameObject.tag == "Rope")
-                {
-                    other.gameObject.GetComponent<PlayerController>().ropeInventory+= 1;
-                    Destroy(gameObject);
-                    Jukebox.Instance.PlaySFX("PickUpItem2");
 
-                }
-                else if (this.gameObject.tag == "Cloth")
-                {
-                    other.gameObject.GetComponent<PlayerController>().clothInventory++;
-                    Destroy(gameObject);
-                    Jukebox.Instance.PlaySFX("PickUpItem2");
-
-                }
-
-                else if (this.gameObject.tag == "PowerUp")
-                {
-                    other.gameObject.GetComponent<PlayerController>().SpeedBoost = true;
-                    Destroy(gameObject);
-                    Jukebox.Instance.PlaySFX("SpeedBoost");
-
-                }
             }
-
-            
         }
     }
 

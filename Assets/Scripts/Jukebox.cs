@@ -75,7 +75,14 @@ public class Jukebox : MonoBehaviour
         if (name == "Victory" || name == "Defeat")
             audioSource.Stop();
 
-        audioSource.PlayOneShot(soundNameToClip[name]);
+        // Arbitrary volume scaling here because the music was a lot
+        // louder than the sound effects. Also fixes footstep loudness.
+        // Music is played in OnSceneLoaded, not here.
+        float volumeScale = 1;
+        if (!name.StartsWith("Footstep"))
+            volumeScale = 2;
+
+        audioSource.PlayOneShot(soundNameToClip[name], volumeScale);
     }
 
     // If multiple sound names are given, play one at random.
