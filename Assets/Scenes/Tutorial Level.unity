@@ -386,12 +386,12 @@ PrefabInstance:
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0008463962
+      value: -0.00084639736
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.011612594
+      value: -0.011612614
       objectReference: {fileID: 0}
     - target: {fileID: 6278318904136852214, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
@@ -428,6 +428,21 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: -0.011626082
       objectReference: {fileID: 0}
+    - target: {fileID: 6278318905620513655, guid: ec1793e7967f99e40a459fc57c9d009a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278318905620513655, guid: ec1793e7967f99e40a459fc57c9d009a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6278318905620513655, guid: ec1793e7967f99e40a459fc57c9d009a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6278318905436842449, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -441,12 +456,12 @@ PrefabInstance:
     - target: {fileID: 6278318905436842449, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00042401103
+      value: -0.00042401045
       objectReference: {fileID: 0}
     - target: {fileID: 6278318905436842449, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.011635696
+      value: -0.011635678
       objectReference: {fileID: 0}
     - target: {fileID: 8646579291057706860, guid: ec1793e7967f99e40a459fc57c9d009a,
         type: 3}
@@ -458,7 +473,9 @@ PrefabInstance:
       propertyPath: m_SlopeLimit
       value: 45
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6974123991545355766, guid: ec1793e7967f99e40a459fc57c9d009a, type: 3}
+    - {fileID: 5969648302788168902, guid: ec1793e7967f99e40a459fc57c9d009a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec1793e7967f99e40a459fc57c9d009a, type: 3}
 --- !u!1 &149541812
 GameObject:

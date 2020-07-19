@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!54 &5969648302788168902
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979741435030986965}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!59 &6974123991545355766
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979741435030986965}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0.674, z: -0.316}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: 0
+    max: 0
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &6278318904136852213
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,8 +75,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318904136852213}
-  m_LocalRotation: {x: 0.0664737, y: -0.013880443, z: 0.0046276385, w: 0.99768096}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.064485885, y: -0.013537475, z: 0.0044833412, w: 0.9978168}
+  m_LocalPosition: {x: -0.00000008940697, y: 3.1831983e-15, z: -2.88503e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6278318904260569634}
@@ -273,13 +324,11 @@ MonoBehaviour:
   Particles: {fileID: 307417209284036585, guid: d723d7f721207a741a06dcbb969ff43a,
     type: 3}
   invText: {fileID: 0}
+  TutorialController: {fileID: 0}
   boostedSpeed: 20
-  SpeedBoost: 0
   maxSpeed: 10
   movementSpeed: 10
   currentSpeed: 0
-  speedSmoothVelocity: 0
-  speedSmoothTime: 0.1
   gravity: 10
   rotationSpeed: 1
   woodInventory: 0
@@ -566,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905398459996}
   m_LocalRotation: {x: 0.12729108, y: 4.6730014e-10, z: 0.000000009033837, w: 0.99186546}
-  m_LocalPosition: {x: 1.2128296, y: 9.220001, z: -40.381805}
+  m_LocalPosition: {x: 0.6064529, y: 9.22, z: -20.190895}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children:
   - {fileID: 6278318904136852214}
@@ -730,7 +779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905436842448}
-  m_LocalRotation: {x: 0.030189108, y: -0.014039356, z: 0.0041203704, w: 0.9994372}
+  m_LocalRotation: {x: 0.028197717, y: -0.013691437, z: 0.0039886464, w: 0.99950063}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -804,8 +853,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278318905620513654}
-  m_LocalRotation: {x: 0.0483154, y: -0.013962309, z: 0.004374391, w: 0.99872506}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.04632546, y: -0.013616804, z: 0.004236366, w: 0.99882466}
+  m_LocalPosition: {x: 0.000000059604645, y: -2.1221322e-15, z: 1.9233533e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6278318904505625384}
@@ -1153,22 +1202,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7413202406038357650, guid: 430d9ed6eb83ae347acef0ae047bd595,
+    - target: {fileID: 636141537805867860, guid: 430d9ed6eb83ae347acef0ae047bd595,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
+      propertyPath: m_Name
+      value: Cup
       objectReference: {fileID: 0}
-    - target: {fileID: 7413202406038357650, guid: 430d9ed6eb83ae347acef0ae047bd595,
+    - target: {fileID: 3926687954728968907, guid: 430d9ed6eb83ae347acef0ae047bd595,
         type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+      propertyPath: m_Name
+      value: Carabiner
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8528054419515017608, guid: 430d9ed6eb83ae347acef0ae047bd595, type: 3}
+    - target: {fileID: 4538300897139515908, guid: 430d9ed6eb83ae347acef0ae047bd595,
+        type: 3}
+      propertyPath: m_Name
+      value: Rope
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 430d9ed6eb83ae347acef0ae047bd595, type: 3}
 --- !u!4 &5115117771721873535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7413202406038357650, guid: 430d9ed6eb83ae347acef0ae047bd595,
+    type: 3}
+  m_PrefabInstance: {fileID: 2313848332658269933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &979741435030986965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3279972277121793592, guid: 430d9ed6eb83ae347acef0ae047bd595,
     type: 3}
   m_PrefabInstance: {fileID: 2313848332658269933}
   m_PrefabAsset: {fileID: 0}
