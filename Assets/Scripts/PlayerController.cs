@@ -322,6 +322,6 @@ public class PlayerController : MonoBehaviour
         playerSphere.GetComponent<KeyPrompt>().Show();
     }
     
-
+    
 }
     

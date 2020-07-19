@@ -23,36 +23,36 @@ public class PickupItem : MonoBehaviour
             
              gameObject.GetComponent<KeyPrompt>().Show();
 
-        if (this.gameObject.tag == "Platform") 
-        {
-            Debug.Log("On the platform");
-            other.GetComponent<PlayerController>().onPlatform = true;
-            if (Input.GetKey(KeyCode.Space))
-            {
-                if (other.GetComponent<PlayerController>().totalInventory > 0)
-                {
-                    //Jukebox.Instance.PlaySFX("PutDownItem3");
+        //if (this.gameObject.tag == "Platform") 
+        //{
+        //    //Debug.Log("On the platform");
+        //    other.GetComponent<PlayerController>().onPlatform = true;
+        //    if (Input.GetKey(KeyCode.Space))
+        //    {
+        //        if (other.GetComponent<PlayerController>().totalInventory > 0)
+        //        {
+        //            //Jukebox.Instance.PlaySFX("PutDownItem3");
 
-                    float woodCollected = other.gameObject.GetComponent<PlayerController>().woodInventory;
-                    gameObject.GetComponent<BoatPlatformController>().woodCollected += woodCollected;
-                    other.gameObject.GetComponent<PlayerController>().woodInventory = 0;
+        //            float woodCollected = other.gameObject.GetComponent<PlayerController>().woodInventory;
+        //            gameObject.GetComponent<BoatPlatformController>().woodCollected += woodCollected;
+        //            other.gameObject.GetComponent<PlayerController>().woodInventory = 0;
 
-                    float ropeCollected = other.gameObject.GetComponent<PlayerController>().ropeInventory;
-                    gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeCollected;
-                    other.gameObject.GetComponent<PlayerController>().ropeInventory = 0;
+        //            float ropeCollected = other.gameObject.GetComponent<PlayerController>().ropeInventory;
+        //            gameObject.GetComponent<BoatPlatformController>().ropeCollected += ropeCollected;
+        //            other.gameObject.GetComponent<PlayerController>().ropeInventory = 0;
 
-                    float foodCollected = other.gameObject.GetComponent<PlayerController>().foodInventory;
-                    gameObject.GetComponent<BoatPlatformController>().foodCollected += foodCollected;
-                    other.gameObject.GetComponent<PlayerController>().foodInventory = 0;
+        //            float foodCollected = other.gameObject.GetComponent<PlayerController>().foodInventory;
+        //            gameObject.GetComponent<BoatPlatformController>().foodCollected += foodCollected;
+        //            other.gameObject.GetComponent<PlayerController>().foodInventory = 0;
 
-                    float clothCollected = other.gameObject.GetComponent<PlayerController>().clothInventory;
-                    gameObject.GetComponent<BoatPlatformController>().clothCollected += clothCollected;
-                    other.gameObject.GetComponent<PlayerController>().clothInventory = 0;
-                }
+        //            float clothCollected = other.gameObject.GetComponent<PlayerController>().clothInventory;
+        //            gameObject.GetComponent<BoatPlatformController>().clothCollected += clothCollected;
+        //            other.gameObject.GetComponent<PlayerController>().clothInventory = 0;
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
         {
             if (Input.GetKey(KeyCode.E))

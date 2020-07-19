@@ -66,7 +66,7 @@ public class BoatPlatformController : MonoBehaviour
                 Jukebox.Instance.PlaySFX("Victory");
                 Instantiate(fireworks, this.transform.position, this.transform.rotation);
                 fireworkActivated = true;
-                Invoke("nextLevel", 5f);
+                
                 
             } 
         }
@@ -96,6 +96,7 @@ public class BoatPlatformController : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+        
     }
 
 }
