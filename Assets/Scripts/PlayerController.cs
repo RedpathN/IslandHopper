@@ -269,6 +269,8 @@ public class PlayerController : MonoBehaviour
 
                 collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
                 foodInventory = 0;
+
+                Jukebox.Instance.PlaySFX("PutDownItem3");
             }
 
         }
