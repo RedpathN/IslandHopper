@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5046455653137484299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901242365776743687}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb3362c2de936945914c2fd3d079395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6986737681920913138
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,6 +24,7 @@ GameObject:
   - component: {fileID: 6986737681920913101}
   - component: {fileID: -4692858237506956350}
   - component: {fileID: 3333228630061701323}
+  - component: {fileID: 8072777888375850573}
   m_Layer: 0
   m_Name: Food
   m_TagString: Food
@@ -76,10 +89,22 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.8
+  m_Radius: 2.13
   m_Height: 2.05
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &8072777888375850573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986737681920913138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb3362c2de936945914c2fd3d079395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5888964384812506669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +189,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e63f41e35688e4ab49dc42d03a075f, type: 3}
+--- !u!1 &901242365776743687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6717143859036082986, guid: 34e63f41e35688e4ab49dc42d03a075f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5888964384812506669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4240845970506596116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7738115552884564281, guid: 34e63f41e35688e4ab49dc42d03a075f,
