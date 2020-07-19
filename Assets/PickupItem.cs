@@ -31,8 +31,6 @@ public class PickupItem : MonoBehaviour
             {
                 if (other.GetComponent<PlayerController>().totalInventory > 0)
                 {
-                    //Jukebox.Instance.PlaySFX("PutDownItem3");
-
                     float woodCollected = other.gameObject.GetComponent<PlayerController>().woodInventory;
                     gameObject.GetComponent<BoatPlatformController>().woodCollected += woodCollected;
                     other.gameObject.GetComponent<PlayerController>().woodInventory = 0;
@@ -48,6 +46,10 @@ public class PickupItem : MonoBehaviour
                     float clothCollected = other.gameObject.GetComponent<PlayerController>().clothInventory;
                     gameObject.GetComponent<BoatPlatformController>().clothCollected += clothCollected;
                     other.gameObject.GetComponent<PlayerController>().clothInventory = 0;
+
+                    // Play a sound effect if we put *something* down
+                    if (woodCollected + ropeCollected + foodCollected + clothCollected > 0)
+                        Jukebox.Instance.PlaySFX("PutDownItem3");
                 }
 
             }
@@ -62,24 +64,28 @@ public class PickupItem : MonoBehaviour
                 {
                     other.gameObject.GetComponent<PlayerController>().foodInventory +=1;
                     Destroy(gameObject);
+                    Jukebox.Instance.PlaySFX("PickUpItem1");
 
                 }
                 else if (this.gameObject.tag == "Wood")
                 {
                     other.gameObject.GetComponent<PlayerController>().woodInventory++;
                     Destroy(gameObject);
+                    Jukebox.Instance.PlaySFX("PickUpItem1");
 
                 }
                 else if (this.gameObject.tag == "Rope")
                 {
                     other.gameObject.GetComponent<PlayerController>().ropeInventory+= 1;
                     Destroy(gameObject);
+                    Jukebox.Instance.PlaySFX("PickUpItem2");
 
                 }
                 else if (this.gameObject.tag == "Cloth")
                 {
                     other.gameObject.GetComponent<PlayerController>().clothInventory++;
                     Destroy(gameObject);
+                    Jukebox.Instance.PlaySFX("PickUpItem2");
 
                 }
 
@@ -87,6 +93,7 @@ public class PickupItem : MonoBehaviour
                 {
                     other.gameObject.GetComponent<PlayerController>().SpeedBoost = true;
                     Destroy(gameObject);
+                    Jukebox.Instance.PlaySFX("SpeedBoost");
 
                 }
             }
