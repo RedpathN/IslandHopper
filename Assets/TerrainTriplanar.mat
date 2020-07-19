@@ -70,7 +70,7 @@ Material:
     - _SideTexTiling: 0.1
     - _TopSmoothness: 0.073
     - _TopTexTiling: 0.4
-    - _WaterHeight: 12
+    - _WaterHeight: 0.25
     m_Colors:
     - _GIAlbedoColor: {r: 0.7830189, g: 0.50175685, b: 0.31394625, a: 1}
     - _SideAlbedo: {r: 0.24528301, g: 0.17951696, b: 0.08908863, a: 1}

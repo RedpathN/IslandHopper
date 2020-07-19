@@ -97,7 +97,7 @@ Material:
     - _SpeedMulti: 10.1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaterHeight: 12
+    - _WaterHeight: 0.25
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0.27058828, g: 0.70869124, b: 1, a: 0.37254903}
