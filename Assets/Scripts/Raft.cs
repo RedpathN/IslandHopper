@@ -55,7 +55,7 @@ public class Raft : MonoBehaviour
         }
         else if (scene.name == "Level 2")
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Level 4");
         }
     }
 }
