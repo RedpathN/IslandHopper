@@ -60,7 +60,11 @@ public class BoatPlatformController : MonoBehaviour
     }
 
     void nextLevel() {
-        SceneManager.LoadScene("Small Demo 2");
+        Scene scene = SceneManager.GetActiveScene();
+        if(scene.name == "Tutorial Level")
+        {
+            SceneManager.LoadScene("Level 1");
+        }
     }
 
 }
