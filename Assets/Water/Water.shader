@@ -9,9 +9,17 @@
         _Glossiness ("Smoothness", Range(0,1)) = 0.033
         _Metallic ("Metallic", Range(0,1)) = 0.042
 
-		_DepthTex ("Water Depth Texture", 2D) = "white" {}
+		_DepthTex ("Water Depth Texture", 2D) = "black" {}
 		_NormalMapTex1 ("Normal Map", 2D) = "white" {}
 		_NormalMapTex2 ("Normal Map2", 2D) = "white" {}
+
+		_N1Scale("Normal_1 Scale", Range(0.01,20)) = 1
+		_N2Scale("Normal_2 Scale", Range(0.01,20)) = 1
+		_N1Str("Normal Strength", Range(0.1,1.5)) = 1
+
+		_SpeedMulti("Speed Multiplier", Range(0.01,30)) = 1
+		_Offset("Speed Offset", Range(-1,1)) = 1
+		
 
     }
     SubShader
@@ -42,6 +50,11 @@
 		fixed4 _DeepColor;
 		float _WaterHeight;
 		float _HeightScale;
+		float _N1Scale;
+		float _N2Scale;
+		float _N1Str;
+		float _SpeedMulti;
+		float _Offset;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -52,7 +65,7 @@
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-			float2 uvflipped = float2(IN.uv_MainTex.x, 1. - IN.uv_MainTex.y);
+			//float2 uvflipped = float2(IN.uv_MainTex.x, 1. - IN.uv_MainTex.y);
 			fixed4 white = fixed4(1., 1., 1., 1.);
 			float oceanFloorHeight = tex2D(_DepthTex, IN.uv_MainTex).x;
 			float waterDepth = max(0.0, _WaterHeight - oceanFloorHeight * _HeightScale);
@@ -64,9 +77,9 @@
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
-			float2 nm1offset = float2(.02, .05) * _Time.y;
-			float2 nm2offset = float2(.03, -.02) * _Time.y;
-			o.Normal = UnpackNormal((tex2D(_NormalMapTex1, IN.worldPos.xz + nm1offset) + tex2D(_NormalMapTex2, (IN.worldPos.xz + nm2offset) / 6)) / 2);
+			float2 nm1offset = float2(.02, .1) * _SpeedMulti * _Time.y;
+			float2 nm2offset = float2(.01, -.1) * (_SpeedMulti*_Offset) * _Time.y ;
+			o.Normal = abs(normalize(UnpackNormal((tex2D(_NormalMapTex1, ((IN.worldPos.xz + nm1offset) / _N1Scale)) * _N1Str) + (tex2D(_NormalMapTex2, ((IN.worldPos.xz + nm2offset) / _N2Scale)) * _N1Str))));
         }
         ENDCG
     }

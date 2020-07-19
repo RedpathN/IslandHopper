@@ -12,6 +12,7 @@ TagManager:
   - Wood
   - Rope
   - Cloth
+  - WASD
   layers:
   - Default
   - TransparentFX

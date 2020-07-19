@@ -13,6 +13,8 @@ public class ShowHideCanvas : MonoBehaviour
     void Awake()
     {
         SetState(defaultState);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     /// <summary>
