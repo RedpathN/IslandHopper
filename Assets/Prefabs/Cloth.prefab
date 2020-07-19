@@ -125,11 +125,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6985318077649190108}
     m_Modifications:
-    - target: {fileID: 7865014027509890055, guid: 461526edd07c54f4fbae6160da80352d,
-        type: 3}
-      propertyPath: m_Name
-      value: Cloth
-      objectReference: {fileID: 0}
     - target: {fileID: 6592563206464867860, guid: 461526edd07c54f4fbae6160da80352d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -138,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 6592563206464867860, guid: 461526edd07c54f4fbae6160da80352d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.122
       objectReference: {fileID: 0}
     - target: {fileID: 6592563206464867860, guid: 461526edd07c54f4fbae6160da80352d,
         type: 3}
@@ -184,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7865014027509890055, guid: 461526edd07c54f4fbae6160da80352d,
+        type: 3}
+      propertyPath: m_Name
+      value: Cloth
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 461526edd07c54f4fbae6160da80352d, type: 3}

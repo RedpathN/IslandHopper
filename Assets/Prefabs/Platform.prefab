@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8269312154148608822}
   - component: {fileID: 8269312154148608825}
   m_Layer: 0
-  m_Name: PlatformText
+  m_Name: PlatformTextClamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
