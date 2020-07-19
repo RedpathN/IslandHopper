@@ -78,6 +78,13 @@ public class Jukebox : MonoBehaviour
         audioSource.PlayOneShot(soundNameToClip[name]);
     }
 
+    // If multiple sound names are given, play one at random.
+    // Useful for adding variation.
+    public void PlaySFX(string[] names)
+    {
+        PlaySFX(names[UnityEngine.Random.Range(0, names.Length)]);
+    }
+
     // Just for testing!
     void Update()
     {

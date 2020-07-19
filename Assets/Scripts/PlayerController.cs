@@ -93,24 +93,28 @@ public class PlayerController : MonoBehaviour
                 newPosition.z -= 1;
                 woodInventory--;
                 Instantiate(Wood, newPosition, transform.rotation);
+                Jukebox.Instance.PlaySFX("PutDownItemLow1");
             } else if (clothInventory > 0)
-                {
-                    Vector3 newPosition = transform.position;
-                    newPosition.z -= 1;
-                    clothInventory--;
-                    Instantiate(Cloths, newPosition, transform.rotation);
-                } else if (ropeInventory > 0)
+            {
+                Vector3 newPosition = transform.position;
+                newPosition.z -= 1;
+                clothInventory--;
+                Instantiate(Cloths, newPosition, transform.rotation);
+                Jukebox.Instance.PlaySFX("Footstep1");
+            } else if (ropeInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
                 ropeInventory--;
                 Instantiate(Rope, newPosition, transform.rotation);
+                Jukebox.Instance.PlaySFX("Footstep1");
             } else if (foodInventory > 0)
             {
                 Vector3 newPosition = transform.position;
                 newPosition.z -= 1;
                 foodInventory--;
                 Instantiate(Food, newPosition, transform.rotation);
+                Jukebox.Instance.PlaySFX("PutDownItemLow1");
             }
         }
         
@@ -133,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
         if (waterLevel > (transform.position.y + 2))
         {
-
+            Jukebox.Instance.PlaySFX("Defeat");
             tutorialText.text = "You died. Press R to restart";
 
             if (TutorialController != null)
@@ -207,6 +211,7 @@ public class PlayerController : MonoBehaviour
             {
                 woodInventory++;
                 Destroy(collision.gameObject);
+                Jukebox.Instance.PlaySFX("PickUpItem1");
             }
         }
 
@@ -216,6 +221,7 @@ public class PlayerController : MonoBehaviour
             {
                 ropeInventory++;
                 Destroy(collision.gameObject);
+                Jukebox.Instance.PlaySFX("PickUpItem2");
             }
         }
 
@@ -225,6 +231,7 @@ public class PlayerController : MonoBehaviour
             {
                 clothInventory++;
                 Destroy(collision.gameObject);
+                Jukebox.Instance.PlaySFX("PickUpItem2");
             }
         }
 
@@ -234,6 +241,7 @@ public class PlayerController : MonoBehaviour
             {
                 foodInventory++;
                 Destroy(collision.gameObject);
+                Jukebox.Instance.PlaySFX("PickUpItem1");
             }
         }
 
@@ -241,6 +249,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             SpeedBoost = true;
+            Jukebox.Instance.PlaySFX("SpeedBoost");
         }
 
         if (collision.gameObject.tag == "Platform")
