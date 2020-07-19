@@ -35,9 +35,20 @@ public class BoatPlatformController : MonoBehaviour
             if (Cursor.lockState == CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.None;
-            } else
+                Cursor.visible = true;
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Cursor.lockState != CursorLockMode.Locked)
             {
                 Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
 

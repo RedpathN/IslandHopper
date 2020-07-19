@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         mainCameraTransform = Camera.main.transform;
 
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
     void Update()
