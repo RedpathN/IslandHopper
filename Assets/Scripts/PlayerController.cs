@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         //---------------------------------------------------------------------------
        
         //Player Movement
-        Move();
+  
 
 
         //Slow down player with more items-----------------------------------------
@@ -148,6 +148,10 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void Move()
