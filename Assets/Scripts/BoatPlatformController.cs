@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BoatPlatformController : MonoBehaviour
+
+    //Testing
 {
     public float woodCollected = 0;
     public float ropeCollected = 0;
