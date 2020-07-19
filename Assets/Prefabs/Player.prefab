@@ -556,7 +556,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.51
     m_SpeedMode: 1
-    m_MaxSpeed: 0.05
+    m_MaxSpeed: 0.04
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 1
-    m_MaxSpeed: 5
+    m_MaxSpeed: 4
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -608,17 +608,17 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0
   m_Orbits:
-  - m_Height: 50.24
-    m_Radius: 16.7
-  - m_Height: 37.8
-    m_Radius: 20.3
-  - m_Height: 12
-    m_Radius: 16.86
+  - m_Height: 58.5
+    m_Radius: 17.9
+  - m_Height: 37.9
+    m_Radius: 45.2
+  - m_Height: 10.05
+    m_Radius: 33.4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
-  - {fileID: 6278318904136852215}
-  - {fileID: 6278318905620513640}
-  - {fileID: 6278318905436842450}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8646579291860816239
 MonoBehaviour:
   m_ObjectHideFlags: 0
