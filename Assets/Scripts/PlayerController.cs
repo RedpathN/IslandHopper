@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var keyPrompt in keyPromptCmpts)
             {
+                if (keyPrompt.keyPrompt.tag == "WASD") continue;
                 keyPrompt.Show();
             }
         }

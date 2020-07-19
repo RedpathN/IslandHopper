@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5757883138807496463}
   m_Layer: 0
   m_Name: WASD Prompt
-  m_TagString: Untagged
+  m_TagString: WASD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

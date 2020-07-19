@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyPrompt: {fileID: 5757883138807496461, guid: 2c3380fa4f2964c48b8374ec474700af,
     type: 3}
-  StartActive: 0
+  StartActive: 1
   HideAfterSeconds: 5
 --- !u!1 &6278318904505625399
 GameObject:
