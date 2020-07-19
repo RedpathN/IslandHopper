@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [Space(5)]
     [Header("Speed Variables")]
     public float boostedSpeed = 5f;
-    private bool SpeedBoost = false;
+    public bool SpeedBoost = false;
     public float maxSpeed = 10f;
     public float movementSpeed = 10f;
     public float currentSpeed = 0;
@@ -194,64 +194,64 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        string[] items = { "Wood", "Rope", "Cloth", "Food", "PowerUp" };
+        //string[] items = { "Wood", "Rope", "Cloth", "Food", "PowerUp" };
 
-        var keyPromptCmpts = collision.gameObject.GetComponents<KeyPrompt>();
-        if (keyPromptCmpts.Any())
-        {
-            foreach (var keyPrompt in keyPromptCmpts)
-            {
-                if (keyPrompt.keyPrompt.tag == "WASD") continue;
-                keyPrompt.Show();
-            }
-        }
+        //var keyPromptCmpts = collision.gameObject.GetComponents<KeyPrompt>();
+        //if (keyPromptCmpts.Any())
+        //{
+        //    foreach (var keyPrompt in keyPromptCmpts)
+        //    {
+        //        if (keyPrompt.keyPrompt.tag == "WASD") continue;
+        //        keyPrompt.Show();
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Wood")
-        {
-            if (woodInventory < 20)
-            {
-                woodInventory++;
-                Destroy(collision.gameObject);
-                Jukebox.Instance.PlaySFX("PickUpItem1");
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Wood")
+        //{
+        //    if (woodInventory < 20)
+        //    {
+        //        woodInventory++;
+        //        Destroy(collision.gameObject);
+        //        Jukebox.Instance.PlaySFX("PickUpItem1");
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Rope")
-        {
-            if (woodInventory < 20)
-            {
-                ropeInventory++;
-                Destroy(collision.gameObject);
-                Jukebox.Instance.PlaySFX("PickUpItem2");
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Rope")
+        //{
+        //    if (woodInventory < 20)
+        //    {
+        //        ropeInventory++;
+        //        Destroy(collision.gameObject);
+        //        Jukebox.Instance.PlaySFX("PickUpItem2");
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Cloth")
-        {
-            if (woodInventory < 20)
-            {
-                clothInventory++;
-                Destroy(collision.gameObject);
-                Jukebox.Instance.PlaySFX("PickUpItem2");
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Cloth")
+        //{
+        //    if (woodInventory < 20)
+        //    {
+        //        clothInventory++;
+        //        Destroy(collision.gameObject);
+        //        Jukebox.Instance.PlaySFX("PickUpItem2");
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Food")
-        {
-            if (woodInventory < 20)
-            {
-                foodInventory++;
-                Destroy(collision.gameObject);
-                Jukebox.Instance.PlaySFX("PickUpItem1");
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Food")
+        //{
+        //    if (woodInventory < 20)
+        //    {
+        //        foodInventory++;
+        //        Destroy(collision.gameObject);
+        //        Jukebox.Instance.PlaySFX("PickUpItem1");
+        //    }
+        //}
 
-        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "PowerUp")
-        {
-            Destroy(collision.gameObject);
-            SpeedBoost = true;
-            Jukebox.Instance.PlaySFX("SpeedBoost");
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "PowerUp")
+        //{
+        //    Destroy(collision.gameObject);
+        //    SpeedBoost = true;
+        //    Jukebox.Instance.PlaySFX("SpeedBoost");
+        //}
 
         if (collision.gameObject.tag == "Platform")
         {
