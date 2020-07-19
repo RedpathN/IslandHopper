@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private float speedSmoothTime = 0.1f;
     public float gravity = 7f;
     public float rotationSpeed = 1f;
+    public float footstepsLength = 150f;
+    private float footstepsCount = 0;
 
     public bool onPlatform = false;
 
@@ -187,8 +189,22 @@ public class PlayerController : MonoBehaviour
 
         float targetSpeed = movementSpeed * movementInput.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
-        controller.Move(desiredMoveDirection*currentSpeed*Time.deltaTime);
+        controller.Move(desiredMoveDirection * currentSpeed * Time.deltaTime);
         controller.Move(gravityVector * Time.deltaTime);
+
+        if (currentSpeed > 0.01f)
+        {
+            footstepsCount += currentSpeed;
+            if (footstepsCount > footstepsLength)
+            {
+                footstepsCount %= footstepsLength;
+                Jukebox.Instance.PlaySFX(new string[] { "Footstep2", "Footstep3" });
+            }
+        }
+        else
+        {
+            footstepsCount = 0;
+        }
     }
 
 
