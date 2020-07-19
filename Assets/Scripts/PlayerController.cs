@@ -259,6 +259,10 @@ public class PlayerController : MonoBehaviour
             onPlatform = true;
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                totalInventory = woodInventory + clothInventory + ropeInventory + foodInventory;
+                if (totalInventory > 0)
+                    Jukebox.Instance.PlaySFX("PutDownItem3");
+
                 collision.gameObject.GetComponent<BoatPlatformController>().woodCollected += woodInventory;
                 woodInventory = 0;
 
@@ -270,8 +274,6 @@ public class PlayerController : MonoBehaviour
 
                 collision.gameObject.GetComponent<BoatPlatformController>().foodCollected += foodInventory;
                 foodInventory = 0;
-
-                Jukebox.Instance.PlaySFX("PutDownItem3");
             }
 
         }
