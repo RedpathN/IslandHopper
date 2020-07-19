@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8269312153303347631}
   - component: {fileID: 8269312153303347630}
   - component: {fileID: 8269312153303347627}
+  - component: {fileID: 908887082}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Platform
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8269312153303347665}
-  m_LocalRotation: {x: -0, y: -0.9945396, z: -0, w: 0.1043597}
+  m_LocalRotation: {x: 0, y: -0.99453926, z: 0, w: 0.10436355}
   m_LocalPosition: {x: 161.2, y: 43.36, z: 237.83}
   m_LocalScale: {x: 3.48, y: 0.01, z: 4.65}
   m_Children:
@@ -93,7 +94,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.43, y: 23.62, z: 0.37}
+  m_Size: {x: 0.9, y: 23.62, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8269312153303347630
 Rigidbody:
@@ -127,12 +128,30 @@ MonoBehaviour:
   ropeCollected: 0
   clothCollected: 0
   foodCollected: 0
-  woodNeeded: 5
-  ropeNeeded: 5
-  clothNeeded: 5
-  foodNeeded: 5
+  woodNeeded: 4
+  ropeNeeded: 4
+  clothNeeded: 4
+  foodNeeded: 4
   collectedAll: 0
   platformText: {fileID: 0}
+  fireworks: {fileID: 3873578964569968744, guid: 46e31e56609e4704da5320a2f637612b,
+    type: 3}
+--- !u!114 &908887082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8269312153303347665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2030d5f758ff54747965e573847c86c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPrompt: {fileID: 5757883138807496461, guid: 6b4c0a4c10d75fa49baf8753e796cbf3,
+    type: 3}
+  StartActive: 0
+  HideAfterSeconds: 0.05
 --- !u!1 &8269312154148608827
 GameObject:
   m_ObjectHideFlags: 0
